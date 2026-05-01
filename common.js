@@ -175,7 +175,7 @@ const hometitles = [
   "Author",
   "Scholar",
   "Educator",
-  "Antiphilosopher",
+  "Philosopher",
   "Indie Game Developer",
 ];
 
