@@ -70,9 +70,6 @@ class MyHeader extends HTMLElement {
                         <a class="text-black hover-underline" href="3d-models.html" role="menuitem"> 3D Models </a>
                     </li>
                     <li class="ms-3 mb-3" role="none">
-                        <a class="text-black hover-underline" href="https://pikonparadox.itch.io/" target="_blank" rel="noopener noreferrer" role="menuitem"> Games </a>
-                    </li>
-                    <li class="ms-3 mb-3" role="none">
                         <a class="text-black hover-underline" href="about.html" role="menuitem"> About </a>
                     </li>
                 </ul>
@@ -100,7 +97,6 @@ class FooterNav extends HTMLElement {
             <li class="list-inline-item hover-underline" role="link"><a class="text-black" href="blog.html" role="menuitem">Blog</a></li>
             <li class="list-inline-item hover-underline" role="link"><a class="text-black" href="literature.html" role="menuitem">Literature</a></li>
             <li class="list-inline-item hover-underline" role="link"><a class="text-black" href="3d-models.html" role="menuitem">3D Models</a></li>
-            <li class="list-inline-item hover-underline" role="link"><a class="text-black" href="https://pikonparadox.itch.io/" target="_blank" rel="noopener noreferrer" role="menuitem">Games</a></li>
             <li class="list-inline-item hover-underline" role="link"><a class="text-black" href="about.html" role="menuitem">About</a></li>
         </ul>
         
@@ -176,6 +172,7 @@ const hometitles = [
   "Scholar",
   "Educator",
   "Philosopher",
+  "Social Scientist",
   "Indie Game Developer",
 ];
 
