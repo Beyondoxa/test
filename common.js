@@ -95,8 +95,6 @@ class FooterNav extends HTMLElement {
             <li class="list-inline-item hover-underline" role="link"><a class="text-black" href="literature.html" role="menuitem">Literature</a></li>
             <li class="list-inline-item hover-underline" role="link"><a class="text-black" href="3d-models.html" role="menuitem">3D Models</a></li>
         </ul>
-        
-        <p class="text-muted">Website designed by Aditya</P>
     </nav>
 </footer>
         `;
@@ -174,7 +172,7 @@ const hometitles = [
 
 // Configuration variables (all times in milliseconds)
 const homeTitlesFadeTime = 250; // duration of fade in/out
-const hometitlesHoldTime = 2000; // time title stays fully visible
+const hometitlesHoldTime = 1250; // time title stays fully visible
 const homeTitlesWaitTime = 0; // time to wait before showing the next title
 
 // Select the HTML element where the titles will appear
