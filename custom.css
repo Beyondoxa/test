@@ -356,3 +356,7 @@ it is heralded with the comment "//WAIT TO SHOW INDEX PAGE CONTENTS" */
   outline: 3px solid rgba(13, 110, 253, 1);
   outline-offset: 2px;
 }
+
+.lh-lg{
+  text-align: justify;
+}
