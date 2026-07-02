@@ -116,6 +116,18 @@ p {
   color: rgb(255, 100, 0);
 }
 
+.text-blossom {
+  color: rgb(249, 73, 94);
+}
+
+.text-buttercup {
+  color: rgb(81, 184, 51);
+}
+
+.text-bubbles {
+  color: rgb(51, 179, 238);
+}
+
 .text-black {
   color: black;
 }
@@ -357,6 +369,6 @@ it is heralded with the comment "//WAIT TO SHOW INDEX PAGE CONTENTS" */
   outline-offset: 2px;
 }
 
-.lh-lg{
+.lh-lg {
   text-align: justify;
 }
