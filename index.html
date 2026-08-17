@@ -14,9 +14,8 @@
 
     <link rel="stylesheet" href="custom.css" />
 
-    <goat-counter></goat-counter>
-
     <title>Dyati</title>
+    <link rel="manifest" href="manifest.json" />
   </head>
 
   <noscript class="mx-auto position-absolute">
@@ -36,13 +35,6 @@
 
         <nav class="homelinks" id="homelinks">
           <a
-            class="lead fs-3 text-blossom hover-underline"
-            href="blog.html"
-            role="link"
-            aria-label="Blog"
-            >Blog</a
-          >
-          <a
             class="lead fs-3 text-buttercup hover-underline"
             href="literature.html"
             role="link"
@@ -60,13 +52,18 @@
 
         <br class="my-0" />
         <address class="text-dark text-center mt-0 mb-2">
-        <span class="grey"> Contact me on
-              <a href="https://signal.org/download/">Signal</a>
-              @ klm.95</span>
-          
-        
-      </address>
+          <span class="grey">
+            Contact me on
+            <a href="https://signal.org/download/">Signal</a>
+            @ klm.95</span
+          >
+        </address>
       </div>
     </main>
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("service-worker.js");
+      }
+    </script>
   </body>
 </html>

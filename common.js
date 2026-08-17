@@ -61,9 +61,6 @@ class MyHeader extends HTMLElement {
                         <a class="text-black hover-underline" href="./" role="menuitem"> Home </a>
                     </li>
                     <li class="ms-3 mb-3" role="none">
-                        <a class="text-black hover-underline" href="blog.html" role="menuitem"> Blog </a>
-                    </li>
-                    <li class="ms-3 mb-3" role="none">
                         <a class="text-black hover-underline" href="literature.html" role="menuitem"> Literature </a>
                     </li>
                     <li class="ms-3 mb-3" role="none">
@@ -91,7 +88,6 @@ class FooterNav extends HTMLElement {
     <nav aria-label="Footer site links">
         <ul class="list-inline mb-2" role="menubar">
             <li class="list-inline-item hover-underline" role="link"><a class="text-black" href="./" role="menuitem">Home</a></li>
-            <li class="list-inline-item hover-underline" role="link"><a class="text-black" href="blog.html" role="menuitem">Blog</a></li>
             <li class="list-inline-item hover-underline" role="link"><a class="text-black" href="literature.html" role="menuitem">Literature</a></li>
             <li class="list-inline-item hover-underline" role="link"><a class="text-black" href="3d-models.html" role="menuitem">3D Models</a></li>
         </ul>
