@@ -1,38 +1,50 @@
-// =========================================================
-// DYATI — COMMON SITE JAVASCRIPT
-// =========================================================
+/* =========================================================
+   DYATI — COMMON SITE JAVASCRIPT
+   ========================================================= */
 
-/* ---------- GoatCounter ---------- */
+"use strict";
+
+
+/* =========================================================
+   GOATCOUNTER
+   ========================================================= */
 
 class GoatCounter extends HTMLElement {
   connectedCallback() {
     if (document.head.querySelector("script[data-goatcounter]")) {
+      this.remove();
       return;
     }
 
     const script = document.createElement("script");
 
-    script.setAttribute(
-      "data-goatcounter",
-      "https://epicsteme.goatcounter.com/count"
-    );
+    script.dataset.goatcounter =
+      "https://epicsteme.goatcounter.com/count";
 
-    script.setAttribute("async", "");
-    script.src = "//gc.zgo.at/count.js";
+    script.src = "https://gc.zgo.at/count.js";
+    script.async = true;
 
     document.head.appendChild(script);
 
-    this.style.display = "none";
+    this.remove();
   }
 }
 
-customElements.define("goat-counter", GoatCounter);
+if (!customElements.get("goat-counter")) {
+  customElements.define("goat-counter", GoatCounter);
+}
 
 
-/* ---------- Shared Header ---------- */
+/* =========================================================
+   SHARED HEADER
+   ========================================================= */
 
 class MyHeader extends HTMLElement {
   connectedCallback() {
+    if (this.hasChildNodes()) {
+      return;
+    }
+
     this.innerHTML = `
       <header class="site-header" id="site-header">
         <div class="site-header-inner">
@@ -49,8 +61,8 @@ class MyHeader extends HTMLElement {
             class="site-nav"
             aria-label="Primary navigation"
           >
-          <a href="#art">Art</a>
-          <a href="#literature">Literature</a>
+            <a href="#art">Art</a>
+            <a href="#literature">Literature</a>
             <a href="#site-footer">Contact</a>
           </nav>
 
@@ -60,25 +72,32 @@ class MyHeader extends HTMLElement {
   }
 }
 
-customElements.define("my-header", MyHeader);
+if (!customElements.get("my-header")) {
+  customElements.define("my-header", MyHeader);
+}
 
 
-/* ---------- Shared Footer ---------- */
+/* =========================================================
+   SHARED FOOTER
+   ========================================================= */
 
 class FooterNav extends HTMLElement {
   connectedCallback() {
+    if (this.hasChildNodes()) {
+      return;
+    }
+
     this.innerHTML = `
       <footer
         class="site-footer"
         id="site-footer"
-        role="contentinfo"
       >
 
         <p>
           Contact me on
           <a
             href="https://signal.org/download/"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
             Signal
           </a>
@@ -96,223 +115,133 @@ class FooterNav extends HTMLElement {
   }
 }
 
-customElements.define("footer-nav", FooterNav);
-
-
-/* ---------- Bootstrap ---------- */
-
-class SiteAssets extends HTMLElement {
-  connectedCallback() {
-
-    // Load Bootstrap CSS
-    if (!document.getElementById("bootstrap-css-cdn")) {
-
-      const link = document.createElement("link");
-
-      link.id = "bootstrap-css-cdn";
-      link.rel = "stylesheet";
-
-      link.href =
-        "https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css";
-
-      link.integrity =
-        "sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr";
-
-      link.crossOrigin = "anonymous";
-
-      document.head.appendChild(link);
-    }
-
-
-    // Load Bootstrap JavaScript
-    if (!document.getElementById("bootstrap-js-cdn")) {
-
-      const script = document.createElement("script");
-
-      script.id = "bootstrap-js-cdn";
-
-      script.src =
-        "https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js";
-
-      script.integrity =
-        "sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q";
-
-      script.crossOrigin = "anonymous";
-
-      document.head.appendChild(script);
-    }
-  }
+if (!customElements.get("footer-nav")) {
+  customElements.define("footer-nav", FooterNav);
 }
-
-customElements.define("site-assets", SiteAssets);
 
 
 /* =========================================================
-   ACCORDION BEHAVIOR
+   ACCORDIONS
    ========================================================= */
 
 function initializeAccordions() {
+  const buttons = document.querySelectorAll(
+    ".toggle-section-btn, .toggle-article-btn"
+  );
 
-  /*
-   * Literature category accordions
-   */
+  buttons.forEach((button) => {
+    const targetId = button.getAttribute("aria-controls");
 
-  document
-    .querySelectorAll(".toggle-section-btn")
-    .forEach((button) => {
+    if (!targetId) {
+      return;
+    }
 
-      const targetId =
-        button.getAttribute("aria-controls");
+    const target = document.getElementById(targetId);
 
-      const target =
-        document.getElementById(targetId);
+    if (!target) {
+      return;
+    }
 
-      if (!target) {
-        return;
-      }
+    /*
+     * Respect the initial aria-expanded value
+     * already present in the HTML.
+     */
+    const initiallyExpanded =
+      button.getAttribute("aria-expanded") === "true";
 
+    target.hidden = !initiallyExpanded;
+
+    /*
+     * Prevent duplicate initialization if this function
+     * is ever called again.
+     */
+    if (button.dataset.accordionInitialized === "true") {
+      return;
+    }
+
+    button.dataset.accordionInitialized = "true";
+
+    button.addEventListener("click", () => {
       const expanded =
         button.getAttribute("aria-expanded") === "true";
 
-      target.hidden = !expanded;
+      const nextState = !expanded;
 
-      target.setAttribute(
-        "aria-hidden",
-        String(!expanded)
+      button.setAttribute(
+        "aria-expanded",
+        String(nextState)
       );
 
-
-      button.addEventListener("click", () => {
-
-        const nextState =
-          button.getAttribute("aria-expanded") !== "true";
-
-        button.setAttribute(
-          "aria-expanded",
-          String(nextState)
-        );
-
-        target.hidden = !nextState;
-
-        target.setAttribute(
-          "aria-hidden",
-          String(!nextState)
-        );
-
-      });
-
+      target.hidden = !nextState;
     });
-
-
-  /*
-   * Individual poem / story accordions
-   */
-
-  document
-    .querySelectorAll(".toggle-article-btn")
-    .forEach((button) => {
-
-      const targetId =
-        button.getAttribute("aria-controls");
-
-      const target =
-        document.getElementById(targetId);
-
-      if (!target) {
-        return;
-      }
-
-      const expanded =
-        button.getAttribute("aria-expanded") === "true";
-
-      target.hidden = !expanded;
-
-      target.setAttribute(
-        "aria-hidden",
-        String(!expanded)
-      );
-
-
-      button.addEventListener("click", () => {
-
-        const nextState =
-          button.getAttribute("aria-expanded") !== "true";
-
-        button.setAttribute(
-          "aria-expanded",
-          String(nextState)
-        );
-
-        target.hidden = !nextState;
-
-        target.setAttribute(
-          "aria-hidden",
-          String(!nextState)
-        );
-
-      });
-
-    });
-
+  });
 }
 
 
 /* =========================================================
-   SMOOTH SECTION NAVIGATION
+   SECTION NAVIGATION
    ========================================================= */
 
 function initializeSectionNavigation() {
+  const links = document.querySelectorAll(
+    'a[href^="#"]'
+  );
 
-  document
-    .querySelectorAll('a[href^="#"]')
-    .forEach((link) => {
+  const reducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  );
 
-      link.addEventListener("click", (event) => {
+  links.forEach((link) => {
+    if (link.dataset.navigationInitialized === "true") {
+      return;
+    }
 
-        const id =
-          link.getAttribute("href");
+    link.dataset.navigationInitialized = "true";
 
-        const target =
-          document.querySelector(id);
+    link.addEventListener("click", (event) => {
+      const id = link.getAttribute("href");
 
-        if (!target) {
-          return;
-        }
+      if (!id || id === "#") {
+        return;
+      }
 
-        event.preventDefault();
+      const target = document.querySelector(id);
 
-        const reducedMotion =
-          window.matchMedia(
-            "(prefers-reduced-motion: reduce)"
-          ).matches;
+      if (!target) {
+        return;
+      }
 
-        target.scrollIntoView({
-          behavior: reducedMotion
-            ? "auto"
-            : "smooth",
+      event.preventDefault();
 
-          block: "start"
-        });
+      target.scrollIntoView({
+        behavior: reducedMotion.matches
+          ? "auto"
+          : "smooth",
 
-        history.replaceState(
-          null,
-          "",
-          id
-        );
-
+        block: "start"
       });
 
+      /*
+       * pushState is avoided here.
+       *
+       * replaceState can interfere with browser navigation
+       * expectations on mobile.
+       */
+      history.pushState(
+        null,
+        "",
+        id
+      );
     });
-
+  });
 }
 
 
 /* =========================================================
-   ARTWORK LIGHTBOX
+   LIGHTBOX
    ========================================================= */
 
 function initializeLightbox() {
-
   const lightbox =
     document.getElementById("lightbox");
 
@@ -322,25 +251,63 @@ function initializeLightbox() {
   const closeButton =
     document.querySelector(".lightbox-close");
 
+  const triggers =
+    document.querySelectorAll(".artwork-trigger");
 
   if (
     !lightbox ||
     !image ||
-    !closeButton
+    !closeButton ||
+    !triggers.length
   ) {
     return;
   }
 
-
   let lastTrigger = null;
+  let previousOverflow = "";
+  let previousHtmlOverflow = "";
 
 
-  /*
-   * Close the lightbox
-   */
+  /* ---------- Open ---------- */
 
-  const close = () => {
+  function open(trigger) {
+    const source =
+      trigger.dataset.lightboxSrc;
 
+    if (!source) {
+      return;
+    }
+
+    lastTrigger = trigger;
+
+    image.src = source;
+
+    image.alt =
+      trigger.dataset.lightboxAlt || "";
+
+    previousOverflow =
+      document.body.style.overflow;
+
+    previousHtmlOverflow =
+      document.documentElement.style.overflow;
+
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+
+    lightbox.classList.add("is-open");
+
+    lightbox.setAttribute(
+      "aria-hidden",
+      "false"
+    );
+
+    closeButton.focus();
+  }
+
+
+  /* ---------- Close ---------- */
+
+  function close() {
     lightbox.classList.remove("is-open");
 
     lightbox.setAttribute(
@@ -348,67 +315,53 @@ function initializeLightbox() {
       "true"
     );
 
-    image.removeAttribute("src");
-    image.removeAttribute("alt");
+    document.body.style.overflow =
+      previousOverflow;
 
+    document.documentElement.style.overflow =
+      previousHtmlOverflow;
 
     /*
-     * Return keyboard focus to
-     * the artwork that opened it.
+     * Do not remove src immediately.
+     * Firefox can visibly flash while the close
+     * transition is happening.
      */
+    window.setTimeout(() => {
+      if (!lightbox.classList.contains("is-open")) {
+        image.removeAttribute("src");
+        image.alt = "";
+      }
+    }, 200);
 
-    if (lastTrigger) {
+    if (
+      lastTrigger &&
+      document.contains(lastTrigger)
+    ) {
       lastTrigger.focus();
     }
 
-  };
+    lastTrigger = null;
+  }
 
 
-  /*
-   * Open artwork
-   */
+  /* ---------- Artwork buttons ---------- */
 
-  document
-    .querySelectorAll(".artwork-trigger")
-    .forEach((trigger) => {
+  triggers.forEach((trigger) => {
+    if (
+      trigger.dataset.lightboxInitialized === "true"
+    ) {
+      return;
+    }
 
-      trigger.addEventListener(
-        "click",
-        () => {
+    trigger.dataset.lightboxInitialized = "true";
 
-          lastTrigger = trigger;
-
-
-          image.src =
-            trigger.dataset.lightboxSrc;
-
-
-          image.alt =
-            trigger.dataset.lightboxAlt || "";
-
-
-          lightbox.classList.add(
-            "is-open"
-          );
-
-
-          lightbox.setAttribute(
-            "aria-hidden",
-            "false"
-          );
-
-
-          closeButton.focus();
-
-        }
-      );
-
+    trigger.addEventListener("click", () => {
+      open(trigger);
     });
+  });
 
 
-  /*
-   * Close button
-   */
+  /* ---------- Close button ---------- */
 
   closeButton.addEventListener(
     "click",
@@ -416,63 +369,60 @@ function initializeLightbox() {
   );
 
 
-  /*
-   * Clicking outside the image closes
-   * the lightbox.
-   */
+  /* ---------- Background click ---------- */
 
   lightbox.addEventListener(
     "click",
     (event) => {
-
       if (event.target === lightbox) {
         close();
       }
-
     }
   );
 
 
-  /*
-   * Escape key closes the lightbox.
-   */
+  /* ---------- Escape ---------- */
 
   document.addEventListener(
     "keydown",
     (event) => {
-
       if (
-        !lightbox.classList.contains(
-          "is-open"
-        )
+        event.key === "Escape" &&
+        lightbox.classList.contains("is-open")
       ) {
-        return;
-      }
-
-
-      if (event.key === "Escape") {
+        event.preventDefault();
         close();
       }
-
     }
   );
-
 }
 
 
 /* =========================================================
-   INITIALIZE SITE
+   INITIALIZATION
    ========================================================= */
 
-document.addEventListener(
-  "DOMContentLoaded",
-  () => {
+function initializeSite() {
+  initializeAccordions();
+  initializeSectionNavigation();
+  initializeLightbox();
+}
 
-    initializeAccordions();
 
-    initializeSectionNavigation();
+/*
+ * Because this script is loaded as type="module",
+ * DOMContentLoaded is normally safe.
+ *
+ * The readyState check also makes this robust if
+ * the loading strategy changes later.
+ */
 
-    initializeLightbox();
-
-  }
-);
+if (document.readyState === "loading") {
+  document.addEventListener(
+    "DOMContentLoaded",
+    initializeSite,
+    { once: true }
+  );
+} else {
+  initializeSite();
+}
