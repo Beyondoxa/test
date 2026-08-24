@@ -1,374 +1,536 @@
-/*background color of all pages*/
+/* =========================================================
+   DYATI — SITE STYLES
+   ========================================================= */
+
 :root {
-  --bs-body-bg: rgb(245, 245, 247);
+  --site-bg: #f5f5f7;
+  --site-text: #111111;
+  --site-muted: #707070;
+  --site-line: #d8d8dc;
+  --site-soft: #e8e8ec;
+  --site-panel: #ffffff;
+  --site-max-width: 1180px;
+  --reading-width: 760px;
+  --content-gap: clamp(4.5rem, 9vw, 8rem);
+  --section-gap: clamp(3rem, 7vw, 6rem);
 }
 
-/* Make the body a flex container with column direction */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+  background: var(--site-bg);
+}
+
 body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* full viewport height */
-  margin: 0; /* remove default body margin */
+  margin: 0;
+  min-height: 100vh;
+  background: var(--site-bg);
+  color: var(--site-text);
+  font-family:
+    system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  line-height: 1.6;
 }
 
-/* Make main content take all available space */
-main {
-  flex: 1 0 auto; /* grow to fill space, don't shrink below content */
-}
-
-/* Footer stays at the bottom */
-footer {
-  flex-shrink: 0; /* don't let footer shrink */
-}
-
-.navbar {
-  --bs-navbar-toggler-border-color: none;
-  --bs-navbar-toggler-focus-width: none;
-}
-
-.navbar-toggler:focus {
-  outline: 2px solid rgba(13, 110, 253, 1);
-  /*outline-offset: 2px;*/
-}
-
-.overflow-x {
-  overflow-x: scroll;
-  white-space: nowrap;
+body,
+button,
+a {
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
+  color: inherit;
   text-decoration: none;
 }
 
-/*
-a:hover,
-a:focus,
-a:active {
-  color:  var(--bs-link-color) ; 
-}
-*/
-
-p {
-  color: black;
+button {
+  font: inherit;
 }
 
-.hover-underline {
-  position: relative; /* anchor is positioning context */
-  display: inline-block; /* makes width match text, not parent */
-  width: fit-content; /* shrink to text width on all devices */
+img {
+  display: block;
+  max-width: 100%;
 }
 
-.hover-underline::before {
+.site-shell {
+  width: min(100%, var(--site-max-width));
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* ---------- Accessibility ---------- */
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 2000;
+  padding: 0.65rem 0.9rem;
+  background: #111;
+  color: #fff;
+  transform: translateY(-160%);
+  transition: transform 160ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+:focus-visible {
+  outline: 3px solid #1463ff;
+  outline-offset: 3px;
+}
+
+/* ---------- Header ---------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: color-mix(in srgb, var(--site-bg) 75%, transparent);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--site-line);
+  padding-right: 12px;
+  padding-left: 12px;
+}
+
+.site-header-inner {
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.site-brand {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.site-nav a,
+.site-footer a,
+.section-nav a {
+  position: relative;
+}
+
+.site-nav a::after,
+.site-footer a::after,
+.section-nav a::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -5px; /* just under the text */
-  height: 3px;
-  width: 100%; /* matches link text width */
-  background-color: currentColor;
+  right: 0;
+  bottom: -0.25rem;
+  height: 1px;
+  background: currentColor;
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.25s;
-  pointer-events: none;
+  transition: transform 180ms ease;
 }
 
-.hover-underline:hover::before {
+.site-nav a:hover::after,
+.site-footer a:hover::after,
+.section-nav a:hover::after {
   transform: scaleX(1);
 }
 
-/* adds scroller on the right side of browser so all pages look consistent */
-.scrolly {
-  overflow-y: scroll;
+/* ---------- Hero ---------- */
+
+.hero-section {
+  min-height: min(720px, 78vh);
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  text-align: center;
+  padding: 5rem 0 6rem;
 }
 
-.card {
-  --bs-card-border-width: 0px;
-  /*outline: 1px solid rgb(237, 237, 240);*/
-  background-color: none;
-  background: none;
+.hero-kicker,
+.section-eyebrow {
+  margin: 0 0 0.75rem;
+  color: var(--site-muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
-.card-title {
-  text-decoration: none;
+.hero-section h1 {
+  margin: 0;
+  font-size: clamp(3.2rem, 9vw, 7rem);
   font-weight: 400;
+  letter-spacing: -0.065em;
+  line-height: 0.95;
 }
 
-.card-subtitle {
-  text-decoration: none;
-  color: rgb(108, 117, 125);
-  font-weight: 400;
+.hero-section h1 span {
+  font-weight:700;
 }
 
-.text-blue {
-  color: #0d6efd; /*default color of links*/
-  /*color: rgb(0, 0, 255);*/
+.hero-intro {
+  max-width: 32rem;
+  margin: 1.5rem auto 0;
+  color: var(--site-muted);
+  font-size: clamp(1rem, 2vw, 1.15rem);
 }
 
-.text-green {
-  color: rgb(0, 128, 0);
-}
-
-.text-yellow {
-  color: orange;
-}
-
-.text-orange {
-  color: rgb(255, 100, 0);
-}
-
-.text-blossom {
-  color: rgb(249, 73, 94);
-}
-
-.text-buttercup {
-  color: rgb(81, 184, 51);
-}
-
-.text-bubbles {
-  color: rgb(51, 179, 238);
-}
-
-.text-black {
-  color: black;
-}
-
-.max-width-90 {
-  max-width: 90%;
-}
-
-.homebody {
+.section-nav {
   display: flex;
-  justify-content: center;
+  gap: 2rem;
+  margin-top: 2.5rem;
+  font-weight: 600;
+}
+
+/* ---------- Main sections ---------- */
+
+.content-section {
+  padding: var(--content-gap) 0;
+  border-top: 1px solid var(--site-line);
+  scroll-margin-top: 72px;
+}
+
+.section-header {
+  max-width: var(--reading-width);
+  margin-bottom: var(--section-gap);
+}
+
+.section-header h2 {
+  margin: 0;
+  font-size: clamp(2.3rem, 5vw, 4.5rem);
+  line-height: 1;
+  letter-spacing: -0.055em;
+  font-weight: 500;
+}
+
+.section-header > p:last-child {
+  max-width: 38rem;
+  margin: 1rem 0 0;
+  color: var(--site-muted);
+}
+
+/* ---------- Literature ---------- */
+
+.literature-layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(3rem, 7vw, 7rem);
+}
+
+.literature-category {
+  min-width: 0;
+}
+
+.section-heading {
+  margin: 0 0 1rem;
+}
+
+.toggle-section-btn,
+.toggle-article-btn {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: var(--site-text);
+  cursor: pointer;
+  text-align: left;
+}
+
+.toggle-section-btn {
+  display: flex;
   align-items: center;
-  height: 100vh;
+  justify-content: space-between;
+  padding: 1rem 0;
+  border-bottom: 2px solid var(--site-text);
+  font-size: 1.15rem;
+  font-weight: 750;
+}
+
+.literature-item {
+  border-bottom: 1px solid var(--site-line);
+}
+
+.literature-item-title {
+  margin: 0;
+}
+
+.toggle-article-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 0;
+  font-weight: 600;
+  transition: color 160ms ease;
+}
+
+.toggle-article-btn:hover {
+  color: var(--site-muted);
+}
+
+.accordion-icon {
+  position: relative;
+  flex: 0 0 15px;
+  width: 15px;
+  height: 15px;
+}
+
+.accordion-icon::before,
+.accordion-icon::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 14px;
+  height: 1px;
+  background: currentColor;
+  transform: translate(-50%, -50%);
+  transition: transform 180ms ease;
+}
+
+.accordion-icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+[aria-expanded="true"] .accordion-icon::after {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.article-body {
+  max-width: var(--reading-width);
+  padding: 0.35rem 0 1.75rem;
+}
+
+.article-body p {
+  margin: 0 0 1rem;
+  color: var(--site-text);
+  text-align: left;
+  text-wrap: pretty;
+}
+
+.article-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- Art gallery ---------- */
+
+.art-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: clamp(1.5rem, 4vw, 4rem);
+  row-gap: clamp(4rem, 8vw, 7rem);
+  align-items: start;
+}
+
+.artwork {
+  margin: 0;
+}
+
+.artwork-trigger {
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+  overflow: hidden;
+}
+
+.artwork-trigger img {
+  width: 100%;
+  height: auto;
+  transition:
+    transform 300ms ease,
+    opacity 300ms ease;
+}
+
+.artwork-trigger:hover img {
+  transform: scale(1.015);
+  opacity: 0.9;
+}
+
+.artwork figcaption,
+.artwork > figcaption {
+  max-width: 90%;
+  margin: 1rem auto 0;
+  color: var(--site-muted);
+  font-size: 0.98rem;
+  line-height: 1.7;
+  text-align: justify;
+}
+
+.artwork:nth-child(3n + 1) {
+  grid-column: span 2;
+}
+
+.artwork:nth-child(3n + 1) .artwork-trigger {
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.artwork:nth-child(3n + 1) figcaption {
+  max-width: 760px;
+}
+
+/* ---------- Lightbox ---------- */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1500;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.88);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 180ms ease,
+    visibility 180ms ease;
+}
+
+.lightbox.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox-content {
+  max-width: min(94vw, 1400px);
+  max-height: 92vh;
+}
+
+.lightbox-content img {
+  max-width: 100%;
+  max-height: 92vh;
+  object-fit: contain;
+}
+
+.lightbox-close {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.35);
+  color: white;
+  cursor: pointer;
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  padding: 2rem 0 3rem;
+  border-top: 1px solid var(--site-line);
+  color: var(--site-muted);
   text-align: center;
 }
 
-/* Home page main should not stretch */
-.homebody main {
-  flex: 0 0 auto; /* don’t grow or shrink, just size to content */
-}
-
-.homecontainer {
+.site-footer nav {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  /*position: relative;
-    top: -10px;*/
-}
-
-/*.hover-expand{
-  transition: 700ms ease;
-  font-variation-settings: "wght" 311;
-
-}
-.hover-expand:hover {
-  font-variation-settings: "wght" 582;
-  letter-spacing: 2px;
-}*/
-
-.homeintro {
-  font-size: clamp(3rem, 5vw, 5rem);
-  /*Min: 2rem → the smallest the font will ever be (on tiny screens).
-    Preferred: 5vw → scales based on viewport width (vw = viewport width unit).
-    1vw = 1% of the viewport’s width.
-    So, 5vw means “make the font size 5% of the current window width.”
-    Max: 5rem → the largest it will ever be (on wide screens).*/
-  margin: 0;
-  font-weight: 400;
-  color: black;
-  /*color: #777;*/
-
-  white-space: nowrap; /* keeps it on one line */
-}
-
-.homeintroname {
-  color: black;
-  /* #007bff; /* blue name */
-  font-weight: 700;
-}
-
-.hometitles {
-  opacity: 0;
-  transition: opacity 0.5s; /* default fade duration, will be overwritten by JS */
-  color: grey;
-  font-weight: 400;
-  white-space: nowrap; /* keeps it on one line */
-}
-
-.homelinks {
-  display: flex;
-  gap: 30px;
-  flex-wrap: wrap;
   justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: 0.75rem;
 }
 
-.homelinks a {
-  text-decoration: none;
-  font-weight: normal;
-  font-size: 1rem;
+.site-footer p {
+  margin: 0;
+  font-size: 0.9rem;
 }
 
-/* homelinks - Responsive: vertical links on narrow screens */
-@media (max-width: 600px) {
-  .homelinks {
-    flex-direction: column;
-    gap: 30px;
-    align-items: center; /* center each link horizontally */
+/* ---------- Responsive ---------- */
+
+@media (max-width: 800px) {
+  .site-shell {
+    padding: 0 1rem;
+  }
+
+  .site-header-inner {
+    min-height: 58px;
+  }
+
+  .site-nav {
+    gap: 1rem;
+    font-size: 0.92rem;
+  }
+
+  .hero-section {
+    min-height: 600px;
+    padding: 4rem 0;
+  }
+
+  .literature-layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .art-gallery {
+    grid-template-columns: 1fr;
+    row-gap: 4rem;
+  }
+
+  .artwork:nth-child(3n + 1) {
+    grid-column: span 1;
   }
 }
 
-/*this bit is tied to lines 118-130 in common.js 
-it is heralded with the comment "//WAIT TO SHOW INDEX PAGE CONTENTS" */
-.fade-content {
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.25s ease-in;
-}
-.fade-content.visible {
-  visibility: visible;
-  opacity: 1;
-}
+@media (max-width: 560px) {
+  html {
+    scroll-padding-top: 64px;
+  }
 
-/*-----TOGGLE SHOW HIDE BLOG SECTION TITLE BUTTONS-----*/
-/* Make toggle buttons look like real buttons */
-#blog-sections .toggle-section-btn {
-  /*all: unset;*/
-  cursor: pointer;
-  display: inline-block;
+  .site-nav {
+    gap: 0.85rem;
+  }
 
-  width: 96%;
-  text-align: center;
-  padding: 4px 8px; /*0.2em 0.2em; */ /* increase touch area */
-  font-weight: 700;
-  /*background-color: #1d1d1f; */
-  background-color: black; /* #0d6efd;*/
-  color: rgb(
-    245,
-    245,
-    247
-  ); /* color of background as set at the top of this file*/
-  border: none; /* reset border */
-  border-radius: 4px;
-  cursor: pointer;
-  user-select: none;
-  -webkit-appearance: none; /* disable default button styling on older Android */
-  appearance: none;
-}
+  .site-nav a:nth-child(3) {
+    display: none;
+  }
 
-/* Hover effect */
-/*#blog-sections .toggle-section-btn:hover {
-  /*background-color: #0a58ca;
-  /* background-color: #2c2c2e;  */ /* Slightly lighter on hover 
-}*/
+  .hero-section h1 {
+    font-size: clamp(3rem, 16vw, 5rem);
+  }
 
-/* Active / pressed effect 
-#blog-sections .toggle-section-btn:active { 
-  /*background-color: #004080;
-  /*background-color: #3a3a3c;     Even lighter on press 
-} */
+  .section-nav {
+    gap: 1.4rem;
+  }
 
-/* Focus / accessibility outline */
-#blog-sections .toggle-section-btn:focus {
-  outline: 3px solid rgba(13, 110, 253, 1);
-  outline-offset: 2px;
+  .section-header {
+    margin-bottom: 3rem;
+  }
+
+  .toggle-section-btn,
+  .toggle-article-btn {
+    padding: 0.9rem 0;
+  }
+
+  .article-body {
+    padding-bottom: 1.4rem;
+  }
+
+  .lightbox {
+    padding: 1rem;
+  }
 }
 
-/* Hide articles when section is collapsed */
-#blog-sections section[data-collapsed="true"] .articles {
-  display: none !important;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
 }
 
-/*-----TOGGLE SHOW HIDE LITERATURE SECTION TITLE BUTTONS-----*/
-/* Make toggle buttons look like real buttons */
-#literature-sections .toggle-section-btn {
-  /*all: unset;*/
-  cursor: pointer;
-  display: inline-block;
-
-  width: 96%;
-  text-align: center;
-  padding: 4px 8px; /*0.2em 0.2em; */ /* increase touch area */
-  font-weight: 700;
-  /*background-color: #1d1d1f; */
-  background-color: black;
-  color: rgb(
-    245,
-    245,
-    247
-  ); /* color of background as set at the top of this file*/
-  border: none; /* reset border */
-  border-radius: 4px;
-  cursor: pointer;
-  user-select: none;
-  -webkit-appearance: none; /* disable default button styling on older Android */
-  appearance: none;
-}
-
-/* Hover effect */
-/* #literature-sections .toggle-section-btn:hover {
-  /*background-color: #0a58ca;
-  /* background-color: #2c2c2e;  */ /* Slightly lighter on hover 
-}*/
-
-/* Active / pressed effect */
-/* #literature-sections .toggle-section-btn:active {
-  /*background-color: #004080;
-  /*background-color: #3a3a3c;     Even lighter on press 
-} */
-
-/* Focus / accessibility outline */
-#literature-sections .toggle-section-btn:focus {
-  outline: 3px solid rgba(13, 110, 253, 1);
-  outline-offset: 2px;
-}
-
-/* Hide articles when section is collapsed */
-#literature-sections section[data-collapsed="true"] .articles {
-  display: none !important;
-}
-
-/*-----TOGGLE SHOW HIDE LITERATURE ARTICLES BUTTONS-----*/
-/* Make toggle buttons look like real buttons */
-.toggle-article-btn {
-  /*all: unset;*/
-  cursor: pointer;
-  display: inline-block;
-
-  width: 96%;
-  text-align: center;
-  padding: 4px 8px; /*0.2em 0.2em; */ /* increase touch area */
-  font-weight: 700;
-  /*background-color: #1d1d1f; */
-  background-color: #d0d0d6;
-  color: black; /* color of background as set at the top of this file*/
-  border: none; /* reset border */
-  border-radius: 4px;
-  cursor: pointer;
-  user-select: none;
-  -webkit-appearance: none; /* disable default button styling on older Android */
-  appearance: none;
-}
-
-/* Hover effect 
-.toggle-article-btn:hover { */
-/*background-color: #b9b9c0;
-  /* background-color: #2c2c2e;  */ /* Slightly lighter on hover 
-} */
-
-/* Active / pressed effect 
-.toggle-article-btn:active { */
-/*background-color: #a2a2ab;
-  /*background-color: #3a3a3c;     Even lighter on press 
-}*/
-
-/* Focus / accessibility outline */
-.toggle-article-btn:focus {
-  outline: 3px solid rgba(13, 110, 253, 1);
-  outline-offset: 2px;
-}
-
-.lh-lg {
-  text-align: justify;
-}
