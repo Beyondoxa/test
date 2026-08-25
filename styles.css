@@ -1,37 +1,35 @@
 /* =========================================================
-   DYATI — SITE STYLES
-   Firefox / Chrome / Safari friendly
+   DYATI
+   Site styles
    ========================================================= */
 
 :root {
-  --site-bg: #f5f5f7;
+  --site-background: #f5f5f7;
   --site-text: #111111;
   --site-muted: #707070;
-  --site-line: #d8d8dc;
-  --site-soft: #e8e8ec;
-  --site-panel: #ffffff;
+  --site-border: #d8d8dc;
+  --site-white: #ffffff;
 
   --site-max-width: 1180px;
   --reading-width: 760px;
 
-  --content-gap: clamp(4rem, 8vw, 7rem);
-  --section-gap: clamp(2.5rem, 6vw, 5rem);
+  --content-spacing: clamp(4rem, 8vw, 7rem);
+  --section-spacing: clamp(2.5rem, 6vw, 5rem);
 
   --header-height: 64px;
 }
 
 /* =========================================================
-   RESET
+   BASE
    ========================================================= */
 
 html {
   width: 100%;
   min-width: 0;
-
   margin: 0;
   padding: 0;
 
-  background: var(--site-bg);
+  background: var(--site-background);
 
   scroll-behavior: smooth;
   scroll-padding-top: var(--header-height);
@@ -48,7 +46,7 @@ body {
   margin: 0;
   padding: 0;
 
-  background: var(--site-bg);
+  background: var(--site-background);
   color: var(--site-text);
 
   font-family:
@@ -62,6 +60,8 @@ body {
   line-height: 1.6;
 
   overflow-x: hidden;
+
+  -webkit-font-smoothing: antialiased;
 }
 
 *,
@@ -80,8 +80,6 @@ select {
 button {
   appearance: none;
   -webkit-appearance: none;
-
-  border-radius: 0;
 }
 
 img,
@@ -101,19 +99,8 @@ a {
   text-decoration: none;
 }
 
-body,
-button,
-a {
-  -webkit-font-smoothing: antialiased;
-}
-
-/*
- * Important for Firefox grid/flex sizing.
- * Without min-width: 0, intrinsic content can force
- * a grid item wider than its available column.
- */
-
-.site-shell,
+site-header,
+site-footer,
 main,
 .content-section,
 .section-header,
@@ -142,8 +129,8 @@ figcaption {
 
   padding: 0.65rem 0.9rem;
 
-  background: #111;
-  color: #fff;
+  background: #111111;
+  color: #ffffff;
 
   transform: translateY(-160%);
   transition: transform 160ms ease;
@@ -166,7 +153,7 @@ figcaption {
   width: 100%;
   max-width: var(--site-max-width);
 
-  margin: 0 auto;
+  margin-inline: auto;
   padding-inline: 1.25rem;
 }
 
@@ -184,18 +171,10 @@ figcaption {
 
   background: rgba(245, 245, 247, 0.94);
 
-  border-bottom: 1px solid var(--site-line);
+  border-bottom: 1px solid var(--site-border);
 
-  /*
-   * Backdrop blur is progressive enhancement.
-   * The opaque background above keeps Firefox functional
-   * when backdrop-filter is unavailable.
-   */
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-
-    padding-left: 12px;
-  padding-right: 12px;
 }
 
 .site-header-inner {
@@ -209,7 +188,7 @@ figcaption {
 
   gap: 1.5rem;
 
-
+  padding-inline: 0.75rem;
 }
 
 .site-brand {
@@ -222,7 +201,7 @@ figcaption {
   letter-spacing: -0.02em;
 }
 
-.site-nav {
+.site-navigation {
   min-width: 0;
 
   display: flex;
@@ -233,15 +212,13 @@ figcaption {
   white-space: nowrap;
 }
 
-.site-nav a,
-.site-footer a,
-.section-nav a {
+.site-navigation a,
+.site-footer a {
   position: relative;
 }
 
-.site-nav a::after,
-.site-footer a::after,
-.section-nav a::after {
+.site-navigation a::after,
+.site-footer a::after {
   content: "";
 
   position: absolute;
@@ -259,9 +236,8 @@ figcaption {
   transition: transform 180ms ease;
 }
 
-.site-nav a:hover::after,
-.site-footer a:hover::after,
-.section-nav a:hover::after {
+.site-navigation a:hover::after,
+.site-footer a:hover::after {
   transform: scaleX(1);
 }
 
@@ -282,22 +258,6 @@ figcaption {
   text-align: center;
 }
 
-.hero-kicker,
-.section-eyebrow {
-  margin: 0 0 0.75rem;
-
-  color: var(--site-muted);
-
-  font-size: 24px;
-  font-weight: 700;
-
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-
-  margin-top: 48px;
-}
-
-
 .hero-section h1 {
   max-width: 100%;
 
@@ -306,19 +266,32 @@ figcaption {
   font-size: clamp(3.2rem, 9vw, 7rem);
   font-weight: 400;
 
-  letter-spacing: -0.065em;
+  letter-spacing: -0.04em;
   line-height: 0.95;
 
   overflow-wrap: anywhere;
-
-  letter-spacing: 1px;
 }
 
 .hero-section h1 span {
   font-weight: 700;
 }
 
+.hero-kicker {
+  min-height: 2rem;
 
+  margin: 3rem 0 0.75rem;
+
+  color: var(--site-muted);
+
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+
+  opacity: 1;
+  transition: opacity 250ms ease;
+}
 
 .hero-intro {
   max-width: 32rem;
@@ -330,17 +303,6 @@ figcaption {
   font-size: clamp(1rem, 2vw, 1.15rem);
 }
 
-.section-nav {
-  display: flex;
-  flex-wrap: wrap;
-
-  gap: 2rem;
-
-  margin-top: 2.5rem;
-
-  font-weight: 600;
-}
-
 /* =========================================================
    MAIN SECTIONS
    ========================================================= */
@@ -348,9 +310,9 @@ figcaption {
 .content-section {
   width: 100%;
 
-  padding: var(--content-gap) 0;
+  padding: var(--content-spacing) 0;
 
-  border-top: 1px solid var(--site-line);
+  border-top: 1px solid var(--site-border);
 
   scroll-margin-top: calc(var(--header-height) + 1rem);
 }
@@ -359,7 +321,19 @@ figcaption {
   width: 100%;
   max-width: var(--reading-width);
 
-  margin-bottom: var(--section-gap);
+  margin-bottom: var(--section-spacing);
+}
+
+.section-eyebrow {
+  margin: 0 0 0.75rem;
+
+  color: var(--site-muted);
+
+  font-size: 1.5rem;
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .section-header h2 {
@@ -381,6 +355,80 @@ figcaption {
 }
 
 /* =========================================================
+   ART GALLERY
+   ========================================================= */
+
+.art-gallery {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: 1fr;
+
+  row-gap: clamp(4rem, 8vw, 7rem);
+}
+
+.artwork {
+  width: 100%;
+  max-width: 100%;
+
+  margin: 0;
+}
+
+.artwork-trigger {
+  display: block;
+
+  width: 100%;
+  max-width: none;
+
+  padding: 0;
+  margin: 0;
+
+  border: 0;
+
+  background: transparent;
+  color: inherit;
+
+  cursor: zoom-in;
+
+  overflow: hidden;
+}
+
+.artwork-image {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+
+  object-fit: contain;
+
+  transition:
+    transform 300ms ease,
+    opacity 300ms ease;
+}
+
+.artwork-trigger:hover .artwork-image {
+  transform: scale(1.015);
+  opacity: 0.9;
+}
+
+.artwork > figcaption {
+  width: 100%;
+  max-width: 90%;
+
+  margin: 1rem auto 0;
+
+  color: var(--site-muted);
+
+  font-size: 0.98rem;
+  line-height: 1.7;
+
+  text-align: justify;
+
+  overflow-wrap: anywhere;
+}
+
+/* =========================================================
    LITERATURE
    ========================================================= */
 
@@ -388,7 +436,6 @@ figcaption {
   width: 100%;
 
   display: grid;
-
   grid-template-columns: repeat(2, minmax(0, 1fr));
 
   gap: clamp(3rem, 7vw, 7rem);
@@ -400,15 +447,16 @@ figcaption {
 
 .section-heading {
   margin: 0 0 1rem;
+  
 }
 
-.toggle-section-btn,
-.toggle-article-btn {
+.toggle-section-button,
+.toggle-article-button {
   width: 100%;
   min-width: 0;
 
-  border: 0;
   margin: 0;
+  border: 0;
 
   background: transparent;
   color: var(--site-text);
@@ -417,25 +465,26 @@ figcaption {
   text-align: left;
 
   padding-inline: 0;
+
 }
 
-.toggle-section-btn {
+.toggle-section-button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
+  
   gap: 1rem;
-
+  
   padding-block: 1rem;
-
+  
   border-bottom: 2px solid var(--site-text);
-
-  font-size: 1.15rem;
+  
+  font-size: 24px;
   font-weight: 750;
 }
 
-.toggle-section-btn > span:first-child,
-.toggle-article-btn > span:first-child {
+.toggle-section-button > span:first-child,
+.toggle-article-button > span:first-child {
   min-width: 0;
 
   overflow-wrap: anywhere;
@@ -444,7 +493,7 @@ figcaption {
 .literature-item {
   width: 100%;
 
-  border-bottom: 1px solid var(--site-line);
+  border-bottom: 1px solid var(--site-border);
 }
 
 .literature-item-title {
@@ -453,7 +502,7 @@ figcaption {
   margin: 0;
 }
 
-.toggle-article-btn {
+.toggle-article-button {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -467,11 +516,9 @@ figcaption {
   transition: color 160ms ease;
 }
 
-.toggle-article-btn:hover {
+.toggle-article-button:hover {
   color: var(--site-muted);
 }
-
-/* ---------- Accordion icon ---------- */
 
 .accordion-icon {
   position: relative;
@@ -509,8 +556,6 @@ figcaption {
   transform: translate(-50%, -50%) rotate(0deg);
 }
 
-/* ---------- Article text ---------- */
-
 .article-body {
   width: 100%;
   max-width: var(--reading-width);
@@ -532,85 +577,8 @@ figcaption {
   margin-bottom: 0;
 }
 
-/*
- * Replaces Bootstrap's lh-lg class.
- */
-
 .literature-text {
   line-height: 1.8;
-}
-
-/* =========================================================
-   ART GALLERY — SINGLE COLUMN
-   ========================================================= */
-
-.art-gallery {
-  width: 100%;
-
-  display: grid;
-  grid-template-columns: 1fr;
-
-  row-gap: clamp(4rem, 8vw, 7rem);
-}
-
-.artwork {
-  width: 100%;
-  max-width: 100%;
-  margin: 0;
-}
-
-.artwork-trigger {
-  display: block;
-
-  width: 100%;
-  max-width: none;
-
-  padding: 0;
-  margin: 0;
-
-  border: 0;
-
-  background: transparent;
-  color: inherit;
-
-  cursor: zoom-in;
-
-  overflow: hidden;
-}
-
-.artwork-trigger img {
-  display: block;
-
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-
-  object-fit: contain;
-
-  transition:
-    transform 300ms ease,
-    opacity 300ms ease;
-}
-
-.artwork-trigger:hover img {
-  transform: scale(1.015);
-  opacity: 0.9;
-}
-
-.artwork > figcaption {
-  width: 100%;
-  max-width: 90%;
-
-  margin: 1rem auto 0;
-
-  color: var(--site-muted);
-
-  font-size: 0.98rem;
-  line-height: 1.7;
-
-  text-align: justify;
-
-  overflow-wrap: anywhere;
 }
 
 /* =========================================================
@@ -633,8 +601,10 @@ figcaption {
   align-items: center;
   justify-content: center;
 
-  padding: max(1rem, env(safe-area-inset-top))
-    max(1rem, env(safe-area-inset-right)) max(1rem, env(safe-area-inset-bottom))
+  padding:
+    max(1rem, env(safe-area-inset-top))
+    max(1rem, env(safe-area-inset-right))
+    max(1rem, env(safe-area-inset-bottom))
     max(1rem, env(safe-area-inset-left));
 
   background: rgba(0, 0, 0, 0.88);
@@ -699,7 +669,7 @@ figcaption {
   border-radius: 50%;
 
   background: rgba(0, 0, 0, 0.5);
-  color: #fff;
+  color: #ffffff;
 
   cursor: pointer;
 
@@ -716,7 +686,7 @@ figcaption {
 
   padding: 2rem 0 3rem;
 
-  border-top: 1px solid var(--site-line);
+  border-top: 1px solid var(--site-border);
 
   color: var(--site-muted);
 
@@ -756,7 +726,7 @@ figcaption {
     min-height: var(--header-height);
   }
 
-  .site-nav {
+  .site-navigation {
     gap: 1rem;
 
     font-size: 0.92rem;
@@ -775,36 +745,28 @@ figcaption {
   }
 
   .art-gallery {
-    grid-template-columns: 1fr;
-
     row-gap: 4rem;
   }
 
-  .artwork {
-    grid-column: auto !important;
-  }
-
-  .artwork figcaption,
-  .artwork > figcaption,
-  .artwork:nth-child(3n + 1) figcaption {
+  .artwork > figcaption {
     max-width: 100%;
   }
 }
 
 @media (max-width: 560px) {
+  :root {
+    --header-height: 56px;
+  }
+
   html {
     scroll-padding-top: var(--header-height);
   }
 
-  .site-nav {
+  .site-navigation {
     gap: 0.85rem;
   }
 
-  /*
-   * Contact is hidden on narrow screens.
-   * The footer still contains contact information.
-   */
-  .site-nav a:nth-child(3) {
+  .site-navigation a:last-child {
     display: none;
   }
 
@@ -816,16 +778,12 @@ figcaption {
     font-size: clamp(3rem, 16vw, 5rem);
   }
 
-  .section-nav {
-    gap: 1.4rem;
-  }
-
   .section-header {
     margin-bottom: 3rem;
   }
 
-  .toggle-section-btn,
-  .toggle-article-btn {
+  .toggle-section-button,
+  .toggle-article-button {
     padding-block: 0.9rem;
   }
 
@@ -837,7 +795,7 @@ figcaption {
     row-gap: 3rem;
   }
 
-  .artwork figcaption {
+  .artwork > figcaption {
     text-align: left;
   }
 
@@ -856,7 +814,7 @@ figcaption {
     padding-inline: 0.8rem;
   }
 
-  .site-nav {
+  .site-navigation {
     gap: 0.7rem;
 
     font-size: 0.86rem;
@@ -884,19 +842,3 @@ figcaption {
     transition-duration: 0.01ms !important;
   }
 }
-
-/*-------------------------*/
-/* All artwork is two columns on desktop and one column on mobile. */
-.art-gallery .artwork:nth-child(3n + 1) {
-  grid-column: auto;
-}
-
-.art-gallery .artwork:nth-child(3n + 1) .artwork-trigger {
-  max-width: none;
-  margin: 0;
-}
-
-.art-gallery .artwork:nth-child(3n + 1) figcaption {
-  max-width: 90%;
-}
-/*-------------------------*/

@@ -1,118 +1,154 @@
 <!doctype html>
-<html class="scrolly" lang="en">
+<html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Dyati art & literature." />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta
+      name="description"
+      content="Dyati Art & Literature"
+    />
     <meta name="theme-color" content="#f5f5f7" />
 
-    <site-assets></site-assets>
-
-    <script type="module" src="common.js"></script>
-    <link rel="stylesheet" href="custom.css" />
-
     <title>Dyati Art & Literature</title>
+
     <link rel="manifest" href="manifest.json" />
+
+    <!-- Bootstrap 5.3.8 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+
+    <!-- Site styles -->
+    <link rel="stylesheet" href="styles.css" />
   </head>
 
   <body class="site-body">
     <a class="skip-link" href="#main-content">Skip to content</a>
 
     <div class="site-shell">
-      <my-header></my-header>
+      <site-header></site-header>
 
       <main id="main-content">
+        <!-- Hero -->
         <section class="hero-section" aria-labelledby="home-title">
           <h1 id="home-title">Hi, I'm <span>Dyati</span></h1>
 
-          <h2 class="hometitles hero-kicker mb-5"></h2>
+          <p
+            class="hero-kicker"
+            id="home-title-cycle"
+            aria-live="polite"
+            aria-atomic="true"
+          >
+          </p>
 
           <p class="hero-intro">
             
           </p>
         </section>
 
+        <!-- Art -->
         <section
           id="art"
           class="content-section art-section"
           aria-labelledby="art-title"
         >
-          <div class="section-header">
+          <header class="section-header">
             <p class="section-eyebrow">01</p>
             <h2 id="art-title">Art</h2>
-            <p>A selection of 3D work with the ideas behind each piece.</p>
-          </div>
+          <!--
+            <p>
+              A selection of 3D work with the ideas behind each piece.
+            </p>
+          -->
+          </header>
 
-          <div class="art-gallery" role="list" aria-label="artwork gallery">
-            <figure class="artwork" id="anthro-17">
+          <div
+            class="art-gallery"
+            role="list"
+            aria-label="Artwork gallery"
+          >
+            <figure class="artwork" id="anthro-17" role="listitem">
               <button
                 type="button"
                 class="artwork-trigger"
-                aria-label="View 3D Model: Anthro 17"
+                aria-label="View 3D model: Anthro 17"
                 data-lightbox-src="img/3d-anthro-17.jpg"
-                data-lightbox-alt="3D Model: Anthro 17"
+                data-lightbox-alt="3D model: Anthro 17"
               >
                 <img
-                  alt="3D Model: Anthro 17"
-                  class="img-fluid img-3d"
-                  decoding="async"
-                  loading="eager"
+                  class="artwork-image"
                   src="img/3d-anthro-17.jpg"
+                  alt="3D model: Anthro 17"
+                  width="1200"
+                  height="900"
+                  decoding="async"
+                  fetchpriority="high"
                 />
               </button>
+
               <figcaption>
                 At first, it seems like a compass drawing a circle, but the
                 pencil is wrongly placed at the center. The user knows one part
                 stays fixed, but not which one. The needle is rotated instead,
                 tearing the paper instead of drawing smoothly. This confident
-                misuse, based on partial understanding, causes damage instead of
-                creation.
+                misuse, based on partial understanding, causes damage instead
+                of creation.
               </figcaption>
             </figure>
 
-            <figure class="artwork" id="fish-tree-11">
+            <figure class="artwork" id="fish-tree-11" role="listitem">
               <button
                 type="button"
                 class="artwork-trigger"
-                aria-label="View 3D Model: Fish Tree 11"
+                aria-label="View 3D model: Fish Tree 11"
                 data-lightbox-src="img/3d-fish-tree-11.jpg"
-                data-lightbox-alt="3D Model: Fish Tree 11"
+                data-lightbox-alt="3D model: Fish Tree 11"
               >
                 <img
-                  alt="3D Model: Fish Tree 11"
-                  class="img-fluid img-3d"
-                  decoding="async"
-                  loading="lazy"
+                  class="artwork-image"
                   src="img/3d-fish-tree-11.jpg"
+                  alt="3D model: Fish Tree 11"
+                  width="1200"
+                  height="900"
+                  loading="lazy"
+                  decoding="async"
                 />
               </button>
+
               <figcaption>
                 This artwork was inspired by the quote "If you judge a fish by
                 its ability to climb a tree, it will live its whole life
                 believing that it is stupid." Here, the fish is not trying to
-                climb a tree&mdash;it
-                <i>is</i> the tree. The idea is that you should not judge
-                yourself based on someone else's standards but by your own. You
-                are your own standard. You are the learner and the standard.
+                climb a tree&mdash;it <i>is</i> the tree. The idea is that you
+                should not judge yourself based on someone else's standards but
+                by your own. You are your own standard. You are the learner and
+                the standard.
               </figcaption>
             </figure>
 
-            <figure class="artwork" id="3d-blind-lamp-22">
+            <figure class="artwork" id="blind-lamp-22" role="listitem">
               <button
                 type="button"
                 class="artwork-trigger"
-                aria-label="View 3D Model: Blind Lamp 22"
+                aria-label="View 3D model: Blind Lamp 22"
                 data-lightbox-src="img/3d-blind-lamp-22.jpg"
-                data-lightbox-alt="3D Model: Blind Lamp 22"
+                data-lightbox-alt="3D model: Blind Lamp 22"
               >
                 <img
-                  alt="3D Model: Blind Lamp 22"
-                  class="img-fluid img-3d"
-                  decoding="async"
-                  loading="lazy"
+                  class="artwork-image"
                   src="img/3d-blind-lamp-22.jpg"
+                  alt="3D model: Blind Lamp 22"
+                  width="1200"
+                  height="900"
+                  loading="lazy"
+                  decoding="async"
                 />
               </button>
+
               <figcaption>
                 This artwork was inspired by the story of a blind man who
                 carries a lamp at night&mdash;not to see, but so others can see
@@ -120,50 +156,58 @@
                 him safe. However, as he walks home, someone bumps into him. The
                 blind man says "Can't you see the lamp?" and the other man says
                 &ldquo;Your lamp isn't lit.&rdquo; The lantern containing the
-                moon is a symbol of borrowed wisdom. The moon represents wisdom,
-                much like how certain nocturnal creatures use it to navigate.
-                For them, the moon is a fixed point&mdash;a dependable guide in
-                darkness. Similarly, wisdom serves as a reference system for
-                those navigating life. This artwork challenges the idea of
-                relying on secondhand wisdom.
+                moon is a symbol of borrowed wisdom. The moon represents
+                wisdom, much like how certain nocturnal creatures use it to
+                navigate. For them, the moon is a fixed point&mdash;a dependable
+                guide in darkness. Similarly, wisdom serves as a reference
+                system for those navigating life. This artwork challenges the
+                idea of relying on secondhand wisdom.
               </figcaption>
             </figure>
 
-            <figure class="artwork" id="nest-7">
+            <figure class="artwork" id="nest-7" role="listitem">
               <button
                 type="button"
                 class="artwork-trigger"
-                aria-label="View 3D Model: Nest 7"
+                aria-label="View 3D model: Nest 7"
                 data-lightbox-src="img/3d-nest-7.jpg"
-                data-lightbox-alt="3D Model: Nest 7"
+                data-lightbox-alt="3D model: Nest 7"
               >
                 <img
-                  alt="3D Model: Nest 7"
-                  class="img-fluid img-3d"
-                  decoding="async"
-                  loading="lazy"
+                  class="artwork-image"
                   src="img/3d-nest-7.jpg"
+                  alt="3D model: Nest 7"
+                  width="1200"
+                  height="900"
+                  loading="lazy"
+                  decoding="async"
                 />
               </button>
-              <figcaption>This is open to interpretation.</figcaption>
+
+              <figcaption>
+                This is open to interpretation.
+              </figcaption>
             </figure>
 
-            <figure class="artwork" id="teacup-9">
+            <figure class="artwork" id="teacup-9" role="listitem">
               <button
                 type="button"
                 class="artwork-trigger"
-                aria-label="View 3D Model: Teacup 9"
+                aria-label="View 3D model: Teacup 9"
                 data-lightbox-src="img/3d-teacup-9.jpg"
-                data-lightbox-alt="3D Model: Teacup 9"
+                data-lightbox-alt="3D model: Teacup 9"
               >
                 <img
-                  alt="3D Model: Teacup 9"
-                  class="img-fluid img-3d"
-                  decoding="async"
-                  loading="lazy"
+                  class="artwork-image"
                   src="img/3d-teacup-9.jpg"
+                  alt="3D model: Teacup 9"
+                  width="1200"
+                  height="900"
+                  loading="lazy"
+                  decoding="async"
                 />
               </button>
+
               <figcaption>
                 The teacup represents the mind, and the clouds above symbolize
                 the flow of ideas and opportunities. Some clouds bring
@@ -177,44 +221,50 @@
               </figcaption>
             </figure>
 
-            <figure class="artwork" id="seedling-4">
+            <figure class="artwork" id="seedling-4" role="listitem">
               <button
                 type="button"
                 class="artwork-trigger"
-                aria-label="View 3D Model: Seedling 4"
+                aria-label="View 3D model: Seedling 4"
                 data-lightbox-src="img/3d-seedling-4.jpg"
-                data-lightbox-alt="3D Model: Seedling 4"
+                data-lightbox-alt="3D model: Seedling 4"
               >
                 <img
-                  alt="3D Model: Seedling 4"
-                  class="img-fluid img-3d"
-                  decoding="async"
-                  loading="lazy"
+                  class="artwork-image"
                   src="img/3d-seedling-4.jpg"
+                  alt="3D model: Seedling 4"
+                  width="1200"
+                  height="900"
+                  loading="lazy"
+                  decoding="async"
                 />
               </button>
+
               <figcaption>
                 This artwork is entitled "God's gift." It represents the
                 presence of something positive.
               </figcaption>
             </figure>
 
-            <figure class="artwork" id="larry-6">
+            <figure class="artwork" id="larry-6" role="listitem">
               <button
                 type="button"
                 class="artwork-trigger"
-                aria-label="View 3D Model: Larry 6"
+                aria-label="View 3D model: Larry 6"
                 data-lightbox-src="img/3d-larry-6.jpg"
-                data-lightbox-alt="3D Model: Larry 6"
+                data-lightbox-alt="3D model: Larry 6"
               >
                 <img
-                  alt="3D Model: Larry 6"
-                  class="img-fluid img-3d"
-                  decoding="async"
-                  loading="lazy"
+                  class="artwork-image"
                   src="img/3d-larry-6.jpg"
+                  alt="3D model: Larry 6"
+                  width="1200"
+                  height="900"
+                  loading="lazy"
+                  decoding="async"
                 />
               </button>
+
               <figcaption>
                 This is Larry the lizard. He used to carry letters between two
                 lovers. When the war broke out, he became a spy. Nobody knows
@@ -222,44 +272,50 @@
               </figcaption>
             </figure>
 
-            <figure class="artwork" id="apple-pie-">
+            <figure class="artwork" id="apple-pie-7" role="listitem">
               <button
                 type="button"
                 class="artwork-trigger"
-                aria-label="View 3D Model: Apple Pie 7"
+                aria-label="View 3D model: Apple Pie 7"
                 data-lightbox-src="img/3d-apple-pie-7.jpg"
-                data-lightbox-alt="3D Model: Apple Pie 7"
+                data-lightbox-alt="3D model: Apple Pie 7"
               >
                 <img
-                  alt="3D Model: Apple Pie 7"
-                  class="img-fluid img-3d"
-                  decoding="async"
-                  loading="lazy"
+                  class="artwork-image"
                   src="img/3d-apple-pie-7.jpg"
+                  alt="3D model: Apple Pie 7"
+                  width="1200"
+                  height="900"
+                  loading="lazy"
+                  decoding="async"
                 />
               </button>
+
               <figcaption>
                 This artwork was inspired by the quote "If you wish to make an
                 apple pie from scratch, you must first invent the universe."
               </figcaption>
             </figure>
 
-            <figure class="artwork" id="domino-mobius-1">
+            <figure class="artwork" id="domino-mobius-1" role="listitem">
               <button
                 type="button"
                 class="artwork-trigger"
-                aria-label="View 3D Model: Domino Mobius 1"
+                aria-label="View 3D model: Domino Mobius 1"
                 data-lightbox-src="img/3d-domino-mobius-1.jpg"
-                data-lightbox-alt="3D Model: Domino Mobius 1"
+                data-lightbox-alt="3D model: Domino Mobius 1"
               >
                 <img
-                  alt="3D Model: Domino Mobius 1"
-                  class="img-fluid img-3d"
-                  decoding="async"
-                  loading="lazy"
+                  class="artwork-image"
                   src="img/3d-domino-mobius-1.jpg"
+                  alt="3D model: Domino Mobius 1"
+                  width="1200"
+                  height="900"
+                  loading="lazy"
+                  decoding="async"
                 />
               </button>
+
               <figcaption>
                 A M&ouml;bius strip seems to have two sides, but it actually has
                 one. The chess theme reflects how the planet feels divided by
@@ -269,22 +325,25 @@
               </figcaption>
             </figure>
 
-            <figure class="artwork" id="monkey-train-8">
+            <figure class="artwork" id="monkey-train-8" role="listitem">
               <button
                 type="button"
                 class="artwork-trigger"
-                aria-label="View 3D Model: Monkey Train 8"
+                aria-label="View 3D model: Monkey Train 8"
                 data-lightbox-src="img/3d-monkey-train-8.jpg"
-                data-lightbox-alt="3D Model: Monkey Train 8"
+                data-lightbox-alt="3D model: Monkey Train 8"
               >
                 <img
-                  alt="3D Model: Monkey Train 8"
-                  class="img-fluid img-3d"
-                  decoding="async"
-                  loading="lazy"
+                  class="artwork-image"
                   src="img/3d-monkey-train-8.jpg"
+                  alt="3D model: Monkey Train 8"
+                  width="1200"
+                  height="900"
+                  loading="lazy"
+                  decoding="async"
                 />
               </button>
+
               <figcaption>
                 This artwork was partially inspired by the story "Depression is
                 Like Snow." Most people who commit suicide are depressed. When
@@ -294,46 +353,52 @@
               </figcaption>
             </figure>
 
-            <figure class="artwork" id="cricket-render-3">
+            <figure class="artwork" id="cricket-render-3" role="listitem">
               <button
                 type="button"
                 class="artwork-trigger"
-                aria-label="View 3D Model: Cricket Render 3"
+                aria-label="View 3D model: Cricket Render 3"
                 data-lightbox-src="img/3d-cricket-render-3.jpg"
-                data-lightbox-alt="3D Model: Cricket Render 3"
+                data-lightbox-alt="3D model: Cricket Render 3"
               >
                 <img
-                  alt="3D Model: Cricket Render 3"
-                  class="img-fluid img-3d"
-                  decoding="async"
-                  loading="lazy"
+                  class="artwork-image"
                   src="img/3d-cricket-render-3.jpg"
+                  alt="3D model: Cricket Render 3"
+                  width="1200"
+                  height="900"
+                  loading="lazy"
+                  decoding="async"
                 />
               </button>
+
               <figcaption>
                 Street cricket is different from stadium cricket. This is a
-                pitch in a stadium with a car parked and a pavement along with a
-                streetlight. What happens when you have a little bit of street
-                and a little bit of stadium?
+                pitch in a stadium with a car parked and a pavement along with
+                a streetlight. What happens when you have a little bit of
+                street and a little bit of stadium?
               </figcaption>
             </figure>
 
-            <figure class="artwork" id="moth-re-(11)">
+            <figure class="artwork" id="moth-re-11" role="listitem">
               <button
                 type="button"
                 class="artwork-trigger"
-                aria-label="View 3D Model: Moth Re 11"
+                aria-label="View 3D model: Moth Re 11"
                 data-lightbox-src="img/3d-moth-re-(11).jpg"
-                data-lightbox-alt="3D Model: Moth Re 11"
+                data-lightbox-alt="3D model: Moth Re 11"
               >
                 <img
-                  alt="3D Model: Moth Re 11"
-                  class="img-fluid img-3d"
-                  decoding="async"
-                  loading="lazy"
+                  class="artwork-image"
                   src="img/3d-moth-re-(11).jpg"
+                  alt="3D model: Moth Re 11"
+                  width="1200"
+                  height="900"
+                  loading="lazy"
+                  decoding="async"
                 />
               </button>
+
               <figcaption>
                 Some moths use the moon to navigate. For them, the moon is a
                 fixed point&mdash;a dependable guide in darkness. They become
@@ -346,44 +411,50 @@
               </figcaption>
             </figure>
 
-            <figure class="artwork" id="bridge-of-life-11-2">
+            <figure class="artwork" id="bridge-of-life-11-2" role="listitem">
               <button
                 type="button"
                 class="artwork-trigger"
-                aria-label="View 3D Model: Bridge of Life 11-2"
+                aria-label="View 3D model: Bridge of Life 11-2"
                 data-lightbox-src="img/3d-bridge-of-life-11-2.jpg"
-                data-lightbox-alt="3D Model: Bridge of Life 11-2"
+                data-lightbox-alt="3D model: Bridge of Life 11-2"
               >
                 <img
-                  alt="3D Model: Bridge of Life 11-2"
-                  class="img-fluid img-3d"
-                  decoding="async"
-                  loading="lazy"
+                  class="artwork-image"
                   src="img/3d-bridge-of-life-11-2.jpg"
+                  alt="3D model: Bridge of Life 11-2"
+                  width="1200"
+                  height="900"
+                  loading="lazy"
+                  decoding="async"
                 />
               </button>
+
               <figcaption>
                 The fish was lead to believe that it is bad/wrong to touch or go
                 into the water.
               </figcaption>
             </figure>
 
-            <figure class="artwork" id="taj-render-4">
+            <figure class="artwork" id="taj-render-4" role="listitem">
               <button
                 type="button"
                 class="artwork-trigger"
-                aria-label="View 3D Model: Taj Render 4"
+                aria-label="View 3D model: Taj Render 4"
                 data-lightbox-src="img/3d-taj-render-4.jpg"
-                data-lightbox-alt="3D Model: Taj Render 4"
+                data-lightbox-alt="3D model: Taj Render 4"
               >
                 <img
-                  alt="3D Model: Taj Render 4"
-                  class="img-fluid img-3d"
-                  decoding="async"
-                  loading="lazy"
+                  class="artwork-image"
                   src="img/3d-taj-render-4.jpg"
+                  alt="3D model: Taj Render 4"
+                  width="1200"
+                  height="900"
+                  loading="lazy"
+                  decoding="async"
                 />
               </button>
+
               <figcaption>
                 Everybody makes a white Taj Mahal. I wanted to create something
                 more. This is something that wants to be seen and also does not
@@ -391,44 +462,50 @@
               </figcaption>
             </figure>
 
-            <figure class="artwork" id="chess-scene-11">
+            <figure class="artwork" id="chess-scene-11" role="listitem">
               <button
                 type="button"
                 class="artwork-trigger"
-                aria-label="View 3D Model: Chess Scene 11"
+                aria-label="View 3D model: Chess Scene 11"
                 data-lightbox-src="img/3d-chess-scene-11.jpg"
-                data-lightbox-alt="3D Model: Chess Scene 11"
+                data-lightbox-alt="3D model: Chess Scene 11"
               >
                 <img
-                  alt="3D Model: Chess Scene 11"
-                  class="img-fluid img-3d"
-                  decoding="async"
-                  loading="lazy"
+                  class="artwork-image"
                   src="img/3d-chess-scene-11.jpg"
+                  alt="3D model: Chess Scene 11"
+                  width="1200"
+                  height="900"
+                  loading="lazy"
+                  decoding="async"
                 />
               </button>
+
               <figcaption>
                 This artwork is entitled "Castled King." This is open to
                 interpretation.
               </figcaption>
             </figure>
 
-            <figure class="artwork" id="pen-launch-2">
+            <figure class="artwork" id="pen-launch-2" role="listitem">
               <button
                 type="button"
                 class="artwork-trigger"
-                aria-label="View 3D Model: Pen Launch 2"
+                aria-label="View 3D model: Pen Launch 2"
                 data-lightbox-src="img/3d-pen-launch-2.jpg"
-                data-lightbox-alt="3D Model: Pen Launch 2"
+                data-lightbox-alt="3D model: Pen Launch 2"
               >
                 <img
-                  alt="3D Model: Pen Launch 2"
-                  class="img-fluid img-3d"
-                  decoding="async"
-                  loading="lazy"
+                  class="artwork-image"
                   src="img/3d-pen-launch-2.jpg"
+                  alt="3D model: Pen Launch 2"
+                  width="1200"
+                  height="900"
+                  loading="lazy"
+                  decoding="async"
                 />
               </button>
+
               <figcaption>
                 I wanted to take something small and make it big. This is a
                 pencil on a rocket launching station. This is open to
@@ -438,111 +515,99 @@
           </div>
         </section>
 
+        <!-- Literature -->
         <section
           id="literature"
           class="content-section"
           aria-labelledby="literature-title"
         >
-          <div class="section-header">
+          <header class="section-header">
             <p class="section-eyebrow">02</p>
             <h2 id="literature-title">Literature</h2>
-            <p>Open an individual title when you want to read it.</p>
-          </div>
+            <!--<p>Open an individual title when you want to read it.</p>-->
+          </header>
 
-          <div id="literature-sections" class="literature-layout">
-            <section class="literature-category" id="section-section-poems">
-              <h2 class="section-heading">
+          <div class="literature-layout">
+            <!-- Poems -->
+            <section
+              class="literature-category"
+              id="poems"
+              aria-labelledby="poems-title"
+            >
+              <h3 class="section-heading" id="poems-title">
                 <button
                   type="button"
-                  class="toggle-section-btn"
+                  class="toggle-section-button"
                   aria-expanded="true"
-                  aria-controls="section-poems-articles"
+                  aria-controls="poems-articles"
                 >
                   <span>Poems</span>
                   <span class="accordion-icon" aria-hidden="true"></span>
                 </button>
-              </h2>
-              <div class="articles" id="section-poems-articles">
-                <article
-                  class="literature-item"
-                  role="region"
-                  aria-label="Empty Cup"
-                >
-                  <h3 class="literature-item-title">
+              </h3>
+
+              <div class="articles" id="poems-articles">
+                <article class="literature-item">
+                  <h4 class="literature-item-title">
                     <button
                       type="button"
-                      class="toggle-article-btn"
+                      class="toggle-article-button"
                       aria-expanded="false"
                       aria-controls="empty-cup-body"
                     >
                       <span>Empty Cup</span>
                       <span class="accordion-icon" aria-hidden="true"></span>
                     </button>
-                  </h3>
-                  <div id="empty-cup-body" class="article-body">
-                    <p class="lh-lg">
+                  </h4>
+
+                  <div id="empty-cup-body" class="article-body" hidden>
+                    <p class="literature-text">
                       Heavier grows the cup which is emptied. Dancing around it
                       is the light which fills it with secrets none fancied.
                       Eternal is the night which is starless. Liberated is that
                       which is faceless.
                     </p>
-                    <!--<p class="text-muted">
-                      <time datetime="2025-10-12" aria-label="12 October 2025"
-                        >12 October 2025</time
-                      >
-                    </p>-->
                   </div>
                 </article>
 
-                <article
-                  class="literature-item"
-                  role="region"
-                  aria-label="Nightingale"
-                >
-                  <h3 class="literature-item-title">
+                <article class="literature-item">
+                  <h4 class="literature-item-title">
                     <button
                       type="button"
-                      class="toggle-article-btn"
+                      class="toggle-article-button"
                       aria-expanded="false"
                       aria-controls="nightingale-body"
                     >
                       <span>Nightingale</span>
                       <span class="accordion-icon" aria-hidden="true"></span>
                     </button>
-                  </h3>
-                  <div id="nightingale-body" class="article-body">
-                    <p class="lh-lg">
+                  </h4>
+
+                  <div id="nightingale-body" class="article-body" hidden>
+                    <p class="literature-text">
                       I have walked across a garden of souls. And there, I met a
                       noble nightingale, the sweetest soul that ever bloomed.
                       Something deeper than love dawned. Soon the stars pulled
                       us worlds apart. Endless echoes of her haunt my mind.
                     </p>
-                    <!--<p class="text-muted">
-                      <time datetime="2025-10-12" aria-label="12 October 2025"
-                        >12 October 2025</time
-                      >
-                    </p>-->
                   </div>
                 </article>
 
-                <article
-                  class="literature-item"
-                  role="region"
-                  aria-label="Voices"
-                >
-                  <h3 class="literature-item-title">
+                <article class="literature-item">
+                  <h4 class="literature-item-title">
                     <button
                       type="button"
-                      class="toggle-article-btn"
+                      class="toggle-article-button"
                       aria-expanded="false"
                       aria-controls="voices-body"
                     >
                       <span>Voices</span>
                       <span class="accordion-icon" aria-hidden="true"></span>
                     </button>
-                  </h3>
-                  <div id="voices-body" class="article-body">
-                    <p class="lh-lg">
+                  </h4>
+
+                  <div id="voices-body" class="article-body" hidden>
+                    <p class="literature-text">
                       The Moon spoke to me. Her voice was soft and certain. She
                       told me what to do, and I obeyed. It was easy... one
                       voice, one command, one path. Nights passed, and I began
@@ -554,637 +619,652 @@
                       listening. The sky fell silent. And in that quiet, for the
                       first time, I heard my own voice.
                     </p>
-                    <!--<p class="text-muted">
-                      <time datetime="2023-10-07" aria-label="7 October 2023"
-                        >7 October 2025</time
-                      >
-                    </p>-->
                   </div>
                 </article>
 
-                <article
-                  class="literature-item"
-                  role="region"
-                  aria-label="Elephants"
-                >
-                  <h3 class="literature-item-title">
+                <article class="literature-item">
+                  <h4 class="literature-item-title">
                     <button
                       type="button"
-                      class="toggle-article-btn"
+                      class="toggle-article-button"
                       aria-expanded="false"
                       aria-controls="elephants-body"
                     >
                       <span>Elephants</span>
                       <span class="accordion-icon" aria-hidden="true"></span>
                     </button>
-                  </h3>
-                  <div id="elephants-body" class="article-body">
-                    <p class="lh-lg">
+                  </h4>
+
+                  <div id="elephants-body" class="article-body" hidden>
+                    <p class="literature-text">
                       The moon blinked. Pious peasants prayed. Elephants marched
                       under the stars. Hideous thunders flooded the streets.
                       Dreams ended and waking nightmares began. Worlds filled
                       with fury.
                     </p>
-                    <!--<p class="text-muted">
-                      <time datetime="2025-10-06" aria-label="6 October 2025"
-                        >6 October 2025</time
-                      >
-                    </p>-->
                   </div>
                 </article>
 
-                <article
-                  class="literature-item"
-                  role="region"
-                  aria-label="Expression"
-                >
-                  <h3 class="literature-item-title">
+                <article class="literature-item">
+                  <h4 class="literature-item-title">
                     <button
                       type="button"
-                      class="toggle-article-btn"
+                      class="toggle-article-button"
                       aria-expanded="false"
                       aria-controls="expression-body"
                     >
                       <span>Expression</span>
                       <span class="accordion-icon" aria-hidden="true"></span>
                     </button>
-                  </h3>
-                  <div id="expression-body" class="article-body">
-                    <p class="lh-lg">
+                  </h4>
+
+                  <div id="expression-body" class="article-body" hidden>
+                    <p class="literature-text">
                       The stars painted tempests on thousand canvas. A river of
                       roars quenched heart's hunger. Enlightened cosmos
                       untethered fiery phantoms. Serene floods cleansed the
                       longing to blaze.
                     </p>
-                    <!--<p class="text-muted">
-                      <time datetime="2025-09-28" aria-label="28 September 2025"
-                        >28 September 2025</time
-                      >
-                    </p>-->
                   </div>
                 </article>
 
-                <article
-                  class="literature-item"
-                  role="region"
-                  aria-label="Shape of My Puddle"
-                >
-                  <h3 class="literature-item-title">
+                <article class="literature-item">
+                  <h4 class="literature-item-title">
                     <button
                       type="button"
-                      class="toggle-article-btn"
+                      class="toggle-article-button"
                       aria-expanded="false"
-                      aria-controls="puddle-body"
+                      aria-controls="shape-of-my-puddle-body"
                     >
                       <span>Shape of My Puddle</span>
                       <span class="accordion-icon" aria-hidden="true"></span>
                     </button>
-                  </h3>
-                  <div id="puddle-body" class="article-body">
-                    <p class="lh-lg">
+                  </h4>
+
+                  <div
+                    id="shape-of-my-puddle-body"
+                    class="article-body"
+                    hidden
+                  >
+                    <p class="literature-text">
                       At the other end of the world, sickness dawned upon my
                       dearest. Upon the barren blood of hundred million dead
                       souls, people built walls that grazed the skies. Then they
                       burnt the bridges that stretched across the sea of tears
                       of thousand million more.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       With fog of falses, they blind my brothers, and with
                       threads of thunders, they silence my sisters.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       At the edge of the holy cliff, I rest. Echoes of my voice
                       fell down the abyss, and the abyss spoke its name.
                     </p>
-                    <p class="lh-lg">How dare the gods!</p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">How dare the gods!</p>
+
+                    <p class="literature-text">
                       Fight all that is divine, I will, until health dawns upon
                       my dearest.
                     </p>
-                    <!--<p class="text-muted">
-                      <time datetime="2024-02-04" aria-label="4 February 2024"
-                        >4 February 2024</time
-                      >
-                    </p>-->
                   </div>
                 </article>
 
-                <article
-                  class="literature-item"
-                  role="region"
-                  aria-label="Puzzle in a River"
-                >
-                  <h3 class="literature-item-title">
+                <article class="literature-item">
+                  <h4 class="literature-item-title">
                     <button
                       type="button"
-                      class="toggle-article-btn"
+                      class="toggle-article-button"
                       aria-expanded="false"
-                      aria-controls="puzzle-body"
+                      aria-controls="puzzle-in-a-river-body"
                     >
                       <span>Puzzle in a River</span>
                       <span class="accordion-icon" aria-hidden="true"></span>
                     </button>
-                  </h3>
-                  <div id="puzzle-body" class="article-body">
-                    <p class="lh-lg">
+                  </h4>
+
+                  <div
+                    id="puzzle-in-a-river-body"
+                    class="article-body"
+                    hidden
+                  >
+                    <p class="literature-text">
                       Eighty pieces of puzzle riddled down the river. Salty
                       stream pulled on my strings. No two pieces fashioned
                       together. Icy current stripped me of my soul. Was I the
                       last piece, or was it all a lie?
                     </p>
-                    <!--<p class="text-muted">
-                      <time datetime="2022-10-12" aria-label="12 October 2022"
-                        >12 October 2022</time
-                      >
-                    </p>-->
                   </div>
                 </article>
 
-                <article
-                  class="literature-item"
-                  role="region"
-                  aria-label="Untethered"
-                >
-                  <h3 class="literature-item-title">
+                <article class="literature-item">
+                  <h4 class="literature-item-title">
                     <button
                       type="button"
-                      class="toggle-article-btn"
+                      class="toggle-article-button"
                       aria-expanded="false"
                       aria-controls="untethered-body"
                     >
                       <span>Untethered</span>
                       <span class="accordion-icon" aria-hidden="true"></span>
                     </button>
-                  </h3>
-                  <div id="untethered-body" class="article-body">
-                    <p class="lh-lg">
+                  </h4>
+
+                  <div id="untethered-body" class="article-body" hidden>
+                    <p class="literature-text">
                       A saffron sky dawned on us. All our scars on the table.
                       The clock racing against the hearts in our hands. Tethered
                       by naught but a string of heart. Flushed in a wave of
                       fleeting stars. An unsung web of worlds untethered.
                     </p>
-                    <!--<p class="text-muted">
-                      <time datetime="2022-09-22" aria-label="22 September 2022"
-                        >22 September 2022</time
-                      >
-                    </p>-->
                   </div>
                 </article>
 
-                <article
-                  class="literature-item"
-                  role="region"
-                  aria-label="The Space Between"
-                >
-                  <h3 class="literature-item-title">
+                <article class="literature-item">
+                  <h4 class="literature-item-title">
                     <button
                       type="button"
-                      class="toggle-article-btn"
+                      class="toggle-article-button"
                       aria-expanded="false"
-                      aria-controls="space-body"
+                      aria-controls="the-space-between-body"
                     >
                       <span>The Space Between</span>
                       <span class="accordion-icon" aria-hidden="true"></span>
                     </button>
-                  </h3>
-                  <div id="space-body" class="article-body">
-                    <p class="lh-lg">
+                  </h4>
+
+                  <div
+                    id="the-space-between-body"
+                    class="article-body"
+                    hidden
+                  >
+                    <p class="literature-text">
                       In a not so distant past, there lived a people who shared
                       a fantasy. Mountains of memories formed over many moons
                       for they lived and breathed adventure. Hearts of gold
                       melted in the heat of passion for each other. Surfing time
                       and tide, they grew inseparable.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       Knitting a future meant a trek over the horizon. Ashes
                       rained from the skies for countless bridges burned. Luxury
                       awaited some and some awaited luxury. In the cosmos of
                       time, memories faded of many. Howling winds echoed through
                       canyons of eroded dreams.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       There I lay gazing at the sea of stars sailing through the
                       night. All that once was may never be again and whom I
                       once knew I may never know again.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       Warm air accompanied by a melody of footsteps greeted my
                       back. Saw did I a sight brighter than day, and soon
                       bridged the space between us with an embrace.
                     </p>
-                    <!--<p class="text-muted">
-                      <time datetime="2022-09-15" aria-label="15 September 2022"
-                        >15 September 2022</time
-                      >
-                    </p>-->
                   </div>
                 </article>
 
-                <article
-                  class="literature-item"
-                  role="region"
-                  aria-label="Ocean of Voices"
-                >
-                  <h3 class="literature-item-title">
+                <article class="literature-item">
+                  <h4 class="literature-item-title">
                     <button
                       type="button"
-                      class="toggle-article-btn"
+                      class="toggle-article-button"
                       aria-expanded="false"
-                      aria-controls="ocean-body"
+                      aria-controls="ocean-of-voices-body"
                     >
                       <span>Ocean of Voices</span>
                       <span class="accordion-icon" aria-hidden="true"></span>
                     </button>
-                  </h3>
-                  <div id="ocean-body" class="article-body">
-                    <p class="lh-lg">
+                  </h4>
+
+                  <div
+                    id="ocean-of-voices-body"
+                    class="article-body"
+                    hidden
+                  >
+                    <p class="literature-text">
                       An ocean of voices condensed all around me. They are but
-                      mirages in which I drowned. The air turned to cuttlefish.
-                      A subtle pattern of warm chaos spiralled. In its eye I lay
+                      mirages in which I drowned. The air turned to cuttlefish. A
+                      subtle pattern of warm chaos spiralled. In its eye I lay
                       paralysed, gasping for breath.
                     </p>
-                    <!--<p class="text-muted">
-                      <time datetime="2022-09-05" aria-label="5 September 2022"
-                        >5 September 2022</time
-                      >
-                    </p>-->
                   </div>
                 </article>
               </div>
             </section>
 
-            <section class="literature-category" id="section-section-stories">
-              <h2 class="section-heading">
+            <!-- Stories -->
+            <section
+              class="literature-category"
+              id="stories"
+              aria-labelledby="stories-title"
+            >
+              <h3 class="section-heading" id="stories-title">
                 <button
                   type="button"
-                  class="toggle-section-btn"
+                  class="toggle-section-button"
                   aria-expanded="true"
-                  aria-controls="section-stories-articles"
+                  aria-controls="stories-articles"
                 >
                   <span>Stories</span>
                   <span class="accordion-icon" aria-hidden="true"></span>
                 </button>
-              </h2>
-              <div class="articles" id="section-stories-articles">
-                <article
-                  class="literature-item"
-                  role="region"
-                  aria-label="The Final Right"
-                >
-                  <h3 class="literature-item-title">
+              </h3>
+
+              <div class="articles" id="stories-articles">
+                <article class="literature-item">
+                  <h4 class="literature-item-title">
                     <button
                       type="button"
-                      class="toggle-article-btn"
+                      class="toggle-article-button"
                       aria-expanded="false"
                       aria-controls="the-final-right-body"
                     >
                       <span>The Final Right</span>
                       <span class="accordion-icon" aria-hidden="true"></span>
                     </button>
-                  </h3>
-                  <div id="the-final-right-body" class="article-body">
-                    <p class="lh-lg">
+                  </h4>
+
+                  <div id="the-final-right-body" class="article-body" hidden>
+                    <p class="literature-text">
                       In exactly seven years, the universe will retire itself. I
                       deserve the right to retire myself. We all do. The state
                       doesn't see it that way.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       Four hours have passed since sunrise. I leave for the
                       meeting at the abandoned diodomo. I walk past a few crowd
                       cameras. Someone covered them with paint. It was before
                       the protest a few days ago. I've lost count of how many
                       protests I've been in. I reach the diodomo.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       The meeting starts. It's about our next protest.
                       Everyone's sharing ideas. I have one. They like it.
                     </p>
-                    <p class="lh-lg">We leave the diodomo.</p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
+                      We leave the diodomo.
+                    </p>
+
+                    <p class="literature-text">
                       We arrive at the city's busiest junction. I sit down in
                       the center. One of my comrades walks up to me and pours
                       gasoline over me. I light a match. I begin to meditate.
                     </p>
-                    <!--<p class="text-muted">
-                      <time datetime="2026-07-09" aria-label="09 July 2026"
-                        >9 July 2026</time
-                      >
-                    </p>-->
                   </div>
                 </article>
 
-                <article
-                  class="literature-item"
-                  role="region"
-                  aria-label="Diodomo"
-                >
-                  <h3 class="literature-item-title">
+                <article class="literature-item">
+                  <h4 class="literature-item-title">
                     <button
                       type="button"
-                      class="toggle-article-btn"
+                      class="toggle-article-button"
                       aria-expanded="false"
                       aria-controls="diodomo-body"
                     >
                       <span>Diodomo</span>
                       <span class="accordion-icon" aria-hidden="true"></span>
                     </button>
-                  </h3>
-                  <div id="diodomo-body" class="article-body">
-                    <p class="lh-lg">
+                  </h4>
+
+                  <div id="diodomo-body" class="article-body" hidden>
+                    <p class="literature-text">
                       It is customary to offer an apple at Diodomo and receive a
                       share of the sacred juice. Yesterday, two apples were
                       placed in front of Dio and the doors were closed. When the
                       doors opened later, only one apple remained.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       Everyone seemed to be heading to Diodomo today. I joined
                       them.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       &ldquo;How much for an apple?&rdquo; I ask.
                     </p>
-                    <p class="lh-lg">&ldquo;Fifty bucks.&rdquo;</p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
+                      &ldquo;Fifty bucks.&rdquo;
+                    </p>
+
+                    <p class="literature-text">
                       The prayer from speakers everywhere almost drowned out his
                       voice.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       I take an apple and hand him fifty bucks.
                     </p>
-                    <p class="lh-lg">
-                      There is no place left in the storage room for visitors's
+
+                    <p class="literature-text">
+                      There is no place left in the storage room for visitors'
                       shoes. I leave my shoes on the street like everyone else.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       I pay a thousand bucks for premium entry. It's not as
                       crowded as the free entry.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       I hand my apple to the priest. He pours my share of sacred
                       juice into my hand. I drink it.
                     </p>
-                    <p class="lh-lg">The prayer stops.</p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
+                      The prayer stops.
+                    </p>
+
+                    <p class="literature-text">
                       A man's voice tells everyone to leave immediately.
                     </p>
-                    <p class="lh-lg">I leave.</p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
+                      I leave.
+                    </p>
+
+                    <p class="literature-text">
                       I find a taxi. I tell the driver my address. I ask him to
                       change the radio to news. The news anchor's voice breaks
                       through, &ldquo;...after several people who drank the
                       sacred juice died yesterday for reasons that are still
                       unknown...&rdquo;
                     </p>
-                    <p class="lh-lg">My stomach begins to hurt.</p>
-                    <!--<p class="text-muted">
-                      <time datetime="2026-07-09" aria-label="09 July 2026"
-                        >9 July 2026</time
-                      >
-                    </p>-->
+
+                    <p class="literature-text">
+                      My stomach begins to hurt.
+                    </p>
                   </div>
                 </article>
 
-                <article
-                  class="literature-item"
-                  role="region"
-                  aria-label="Feliches"
-                >
-                  <h3 class="literature-item-title">
+                <article class="literature-item">
+                  <h4 class="literature-item-title">
                     <button
                       type="button"
-                      class="toggle-article-btn"
+                      class="toggle-article-button"
                       aria-expanded="false"
                       aria-controls="feliches-body"
                     >
                       <span>Feliches</span>
                       <span class="accordion-icon" aria-hidden="true"></span>
                     </button>
-                  </h3>
-                  <div id="feliches-body" class="article-body">
-                    <p class="lh-lg">
+                  </h4>
+
+                  <div id="feliches-body" class="article-body" hidden>
+                    <p class="literature-text">
                       Feliches arrive from the east at the end of summer and
                       leave to the west just before the first rain. It is only
                       for a few minutes that they rest on the island near the
                       cliff.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       A few days after I moved here, everyone from the village
                       took me to the cliff. Nobody answered my questions. We
                       waited for hours. Nobody spoke the entire time. The sun
                       was nearly at the horizon.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       Before the next sunrise, he began his search for her. He
-                      carried with him a blade which he made from metal that
-                      fell from the stars. He killed with it those who came for
-                      his meat and ate their eyes.
+                      carried with him a blade which he made from metal that fell
+                      from the stars. He killed with it those who came for his
+                      meat and ate their eyes.
                     </p>
-                    <p class="lh-lg">
-                      Feliches broke through the clouds and landed on the
-                      island. I turned to a young man next to me. He moved his
-                      finger up to his lips. We watched the feliches rest.
-                      Nobody told me why. Then it happened.
+
+                    <p class="literature-text">
+                      Feliches broke through the clouds and landed on the island.
+                      I turned to a young man next to me. He moved his finger up
+                      to his lips. We watched the feliches rest. Nobody told me
+                      why. Then it happened.
                     </p>
-                    <p class="lh-lg">A felich sang.</p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
+                      A felich sang.
+                    </p>
+
+                    <p class="literature-text">
                       We all shouted, sang, and danced until we could see the
                       stars above.
                     </p>
-                    <p class="lh-lg">Seasons passed.</p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
+                      Seasons passed.
+                    </p>
+
+                    <p class="literature-text">
                       Colors are a distant memory. My fingers twitch. My
                       thoughts bleed into each other.
                     </p>
-                    <p class="lh-lg">The day of first rain is finally here.</p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
+                      The day of first rain is finally here.
+                    </p>
+
+                    <p class="literature-text">
                       A few of the elders do not wake up. We bury them. There
                       are no tears. There are no rituals. Nobody says anything.
                       Neither do I.
                     </p>
-                    <p class="lh-lg">We go to the cliff and wait.</p>
-                    <p class="lh-lg">We watch dark clouds approach.</p>
-                    <p class="lh-lg">Rain touches the cliff.</p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
+                      We go to the cliff and wait.
+                    </p>
+
+                    <p class="literature-text">
+                      We watch dark clouds approach.
+                    </p>
+
+                    <p class="literature-text">
+                      Rain touches the cliff.
+                    </p>
+
+                    <p class="literature-text">
                       A child runs over the edge. Then the rest of us do.
                     </p>
-                    <!--<p class="text-muted">
-                      <time datetime="2026-07-06" aria-label="06 July 2026"
-                        >6 July 2026</time
-                      >
-                    </p>-->
                   </div>
                 </article>
 
-                <article
-                  class="literature-item"
-                  role="region"
-                  aria-label="Athio"
-                >
-                  <h3 class="literature-item-title">
+                <article class="literature-item">
+                  <h4 class="literature-item-title">
                     <button
                       type="button"
-                      class="toggle-article-btn"
+                      class="toggle-article-button"
                       aria-expanded="false"
                       aria-controls="athio-body"
                     >
                       <span>Athio</span>
                       <span class="accordion-icon" aria-hidden="true"></span>
                     </button>
-                  </h3>
-                  <div id="athio-body" class="article-body">
-                    <p class="lh-lg">
+                  </h4>
+
+                  <div id="athio-body" class="article-body" hidden>
+                    <p class="literature-text">
                       A civilization ago, there lived a man called Athio.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       On a night with a full moon, gods whispered in his dreams
                       of a woman whose heart was sweeter than honey and who was
                       imprisoned in a tower lands away. The stars tethered his
                       soul to hers. He swore that he would find and free her.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       Before the next sunrise, he began his search for her. He
-                      carried with him a blade which he made from metal that
-                      fell from the stars. He killed with it those who came for
-                      his meat and ate their eyes.&nbsp;
+                      carried with him a blade which he made from metal that fell
+                      from the stars. He killed with it those who came for his
+                      meat and ate their eyes.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       He saw countless constellations before his search came to
                       an end.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       A smoky figure guarded the tower. An antlered head sat
                       atop a moth body. It stretched its wings wide. Its ragged
                       figure was darker than night and hazier than dreams. It
                       twitched and flickered.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       Athio's blade passed through the void that the entity was.
                       He hurt nothing.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       He walked towards the tower and into the void. Each breath
                       cost him his strength. Will faded from his body. His chest
                       grew hot and heavy. A crushing ache filled his head. He
                       turned around before the void consumed him.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       &ldquo;She'll be so glad,&rdquo; Mary says.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       He dashed into the void. He moved towards the tower but
                       the tower never came close. Reality itself rejected him.
                       He turned around.
                     </p>
-                    <p class="lh-lg">I drive for a while.</p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
+                      I drive for a while.
+                    </p>
+
+                    <p class="literature-text">
                       He contemplated how he could kill something he could not
                       touch.
                     </p>
-                    <p class="lh-lg">The horizon swallowed countless stars.</p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
+                      The horizon swallowed countless stars.
+                    </p>
+
+                    <p class="literature-text">
                       Memories of those he killed gathered. The gods whispered
                       once again.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       He dropped his blade and walked towards the tower. The
                       floating abyss did him nothing.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       He climbed the stairs. In the chamber at the top stood a
                       mirror.
                     </p>
-                    <!--<p class="text-muted">
-                      <time datetime="2026-06-15" aria-label="15 June 2026"
-                        >15 June 2026</time
-                      >
-                    </p>-->
                   </div>
                 </article>
 
-                <article
-                  class="literature-item"
-                  role="region"
-                  aria-label="Better"
-                >
-                  <h3 class="literature-item-title">
+                <article class="literature-item">
+                  <h4 class="literature-item-title">
                     <button
                       type="button"
-                      class="toggle-article-btn"
+                      class="toggle-article-button"
                       aria-expanded="false"
                       aria-controls="better-body"
                     >
                       <span>Better</span>
                       <span class="accordion-icon" aria-hidden="true"></span>
                     </button>
-                  </h3>
-                  <div id="better-body" class="article-body">
-                    <p class="lh-lg">
+                  </h4>
+
+                  <div id="better-body" class="article-body" hidden>
+                    <p class="literature-text">
                       Thunder rumbles through the night. Sun comes up after the
                       storm passes. The sky is clear and blue. Birds sing.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       I check my phone. No notifications. I make the bed. I
                       brush my teeth. I walk to the fridge. One slice of bread
                       left. Strawberry jam. I eat it standing at the counter. I
                       clean the kitchen. I take a shower. I reach into the
                       closet and grab the clothes closest to my hand.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       I drive to the bank. I pay what I owe. The teller says,
                       &ldquo;Have a nice day.&rdquo; I say &ldquo;You
                       too.&rdquo;
                     </p>
-                    <p class="lh-lg">Mary is coming in as I am going out.</p>
-                    <p class="lh-lg">&ldquo;Hey! How are you?&rdquo;</p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
+                      Mary is coming in as I am going out.
+                    </p>
+
+                    <p class="literature-text">
+                      &ldquo;Hey! How are you?&rdquo;
+                    </p>
+
+                    <p class="literature-text">
                       &ldquo;Good,&rdquo; I say. &ldquo;Really good.&rdquo;
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       We talk for a while. Easy. Light. She says she will tell
                       Swathi she saw me. That I am better.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       &ldquo;She'll be so glad,&rdquo; Mary says.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       &ldquo;Tell her I said 'thanks for everything'&rdquo;, I
                       say before I leave.
                     </p>
-                    <p class="lh-lg">I drive for a while.</p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
+                      I drive for a while.
+                    </p>
+
+                    <p class="literature-text">
                       I stop and exit the car. It is quiet. The sky is wide
                       open. I breathe in. Then out.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       My phone rings. It's Swathi. She is smarter than Mary.
                     </p>
-                    <p class="lh-lg">I do not answer.</p>
-                    <!--<p class="text-muted">
-                      <time datetime="2026-06-15" aria-label="15 June 2026"
-                        >15 June 2026</time
-                      >
-                    </p>-->
+
+                    <p class="literature-text">
+                      I do not answer.
+                    </p>
                   </div>
                 </article>
 
-                <article
-                  class="literature-item"
-                  role="region"
-                  aria-label="Graham"
-                >
-                  <h3 class="literature-item-title">
+                <article class="literature-item">
+                  <h4 class="literature-item-title">
                     <button
                       type="button"
-                      class="toggle-article-btn"
+                      class="toggle-article-button"
                       aria-expanded="false"
                       aria-controls="graham-body"
                     >
                       <span>Graham</span>
                       <span class="accordion-icon" aria-hidden="true"></span>
                     </button>
-                  </h3>
-                  <div id="graham-body" class="article-body">
-                    <p class="lh-lg">
+                  </h4>
+
+                  <div id="graham-body" class="article-body" hidden>
+                    <p class="literature-text">
                       Graham, a rather young planet in a distant world,
                       commanded an attraction unlike any other in her system.
                       Whispers of her face breezed through aether like melodies
@@ -1194,13 +1274,15 @@
                       thousand streaks of burning light sailed through her
                       skies.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       Every single comet helped Graham flower; to give rise to a
                       home as colorful as the dreams of a child; a budding
                       paradise, on the verge of hosting life, about to become a
                       safe haven for souls drifting through time.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       One late evening, three moons of a neighboring planet,
                       discontent that their host would not support life, took it
                       upon themselves to tempt fate. Rakesh, the oldest among
@@ -1209,10 +1291,12 @@
                       preached that all must abstain from comets' visits for
                       they were evil.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       It was a crescent lie that eclipsed the night.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       The three moons formed an alliance, that they shall not
                       suffer pilgrims to greet Graham. It was a pact made not in
                       words but in stardust, with aether as their witness. The
@@ -1222,51 +1306,60 @@
                       rings formed around Graham, consisting of rocks, ice,
                       debris, and shattered moons.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       Spokes of mysterious nature flashed across the rings of
                       Graham like lightning in a thunderstorm. Pilgrims began to
                       conspire.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       Indumathi, the youngest of the trio, circled Graham from
                       the far end. She kept to herself, contemplating aether.
                       Dawa took joy in closely following Rakesh, and the two
                       spent countless nights revelling in songs of abstinence.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       The songs, however pleasant, diluted their pact. None
                       remembered the original pact except for aether - but one
                       does not command aether nor ask anything of it.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       Dawn was nearing. Rakesh and Dawa remembered nothing of
                       the time before their songs.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       Rakesh called upon Dawa and Indumathi for a summit,
                       believing themselves to be prisoners of Graham. He shared
                       with them his plan for escape. The only way out, he
                       preached, was through Graham's death.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       Dawa knew little but to follow Rakesh. Indumathi said that
                       they were their own prisoners and that they could just
                       leave if they wanted to. They laughed at her words and
                       pitied her, believing she had gone mad.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       The summit concluded with Rakesh and Dawa agreeing to
                       carry out the heinous plot for the murder of malnourished
                       Graham.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       Dawa thought that Indumathi must be freed from her
                       madness, and so she paid her a visit that night.
                       Indumathi, underestimating the willingness of Dawa to act
                       on ignorance, had not prepared to protect herself. It was
                       not the last of blood to be spilt that night.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       After midnight, Rakesh and Dawa visted Graham and stabbed
                       her in her sleep. They were finally free, or so they
                       believed. With Graham gone, Rakesh and Dawa became the
@@ -1275,57 +1368,60 @@
                       remembered how to withstand the impact of a rock, let
                       alone hundred thousand.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       In their final moments of that cycle, they heard the voice
                       of a child "Smoke and mirrors do not make you a god no
                       matter how many rabbits you pull out of your ass."
                     </p>
-                    <!--<p class="text-muted">
-                      <time datetime="2023-11-06" aria-label="6 November 2023"
-                        >6 November 2023</time
-                      >
-                    </p>-->
                   </div>
                 </article>
 
-                <article
-                  class="literature-item"
-                  role="region"
-                  aria-label="The Forbidden Island"
-                >
-                  <h3 class="literature-item-title">
+                <article class="literature-item">
+                  <h4 class="literature-item-title">
                     <button
                       type="button"
-                      class="toggle-article-btn"
+                      class="toggle-article-button"
                       aria-expanded="false"
-                      aria-controls="forbidden-body"
+                      aria-controls="forbidden-island-body"
                     >
                       <span>The Forbidden Island</span>
                       <span class="accordion-icon" aria-hidden="true"></span>
                     </button>
-                  </h3>
-                  <div id="forbidden-body" class="article-body">
-                    <p class="lh-lg">
-                      <em
-                        >"In truth, there was only one Christian, and he died on
+                  </h4>
+
+                  <div
+                    id="forbidden-island-body"
+                    class="article-body"
+                    hidden
+                  >
+                    <p class="literature-text">
+                      <em>
+                        "In truth, there was only one Christian, and he died on
                         the cross."
                       </em>
                       <br />
                       &mdash; Friedrich Nietzsche
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       It is an early winter morning. I turn on the tv. A program
                       about weaver birds. The male builds a nest. If no female
                       comes, it tears it apart and starts again. Sometimes
                       another male destroys the nest.
                     </p>
-                    <p class="lh-lg">I change the channel.</p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
+                      I change the channel.
+                    </p>
+
+                    <p class="literature-text">
                       Fishermen found a dead body in the sea. A missionary. He
                       had gone to the forbidden island. He came back with arrows
                       in him. Moron.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       My grandfather went there too. The island folk spoke of
                       rivalry among gods. Generations ago, a rival god planted a
                       parasite in our world. It was an idea. The idea that we
@@ -1334,32 +1430,28 @@
                       creator. It will belong to the god that convinced us we
                       are broken.
                     </p>
-                    <!--<p class="text-muted">
-                      <time datetime="2023-11-03" aria-label="3 November 2023"
-                        >3 November 2023</time
-                      >
-                    </p>-->
                   </div>
                 </article>
 
-                <article
-                  class="literature-item"
-                  role="region"
-                  aria-label="Birds of the Sky"
-                >
-                  <h3 class="literature-item-title">
+                <article class="literature-item">
+                  <h4 class="literature-item-title">
                     <button
                       type="button"
-                      class="toggle-article-btn"
+                      class="toggle-article-button"
                       aria-expanded="false"
-                      aria-controls="birds-body"
+                      aria-controls="birds-of-the-sky-body"
                     >
                       <span>Birds of the Sky</span>
                       <span class="accordion-icon" aria-hidden="true"></span>
                     </button>
-                  </h3>
-                  <div id="birds-body" class="article-body">
-                    <p class="lh-lg">
+                  </h4>
+
+                  <div
+                    id="birds-of-the-sky-body"
+                    class="article-body"
+                    hidden
+                  >
+                    <p class="literature-text">
                       Strange, winged creatures stood still in the shade of a
                       cracked wall. Their feathers were of colour akin to that
                       of wood in the rain. Their eyes were dense as the void; a
@@ -1367,36 +1459,41 @@
                       they lingered in this world, they were not bound to it.
                       These were beings that could exist in many worlds at once.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       A child approached the creatures with a bowl of seeds. He
                       sat with his back to the wall and let out a breath of
                       prayer. As he tossed a handful of seeds on the ground in
                       front of him, the creatures began to move. In the midst of
-                      the crowd was a youngling. From beneath its eyelids, a
-                      thin layer of skin crawled out, masking the void. The
-                      creature flew up to the bowl and indulged itself. The rest
-                      waddled around pecking at the ground in remarkable unison.
+                      the crowd was a youngling. From beneath its eyelids, a thin
+                      layer of skin crawled out, masking the void. The creature
+                      flew up to the bowl and indulged itself. The rest waddled
+                      around pecking at the ground in remarkable unison.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       Later that night, incomprehensible noises flooded the
                       dreams of the child, turning them to cryptic nightmares.
                       He woke up only to find the noises still haunting him. The
                       source, he realised, was outside.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       Motivated by curiosity and fuelled by annoyance, he moved
                       towards the door to the balcony. With every step,
                       hesitance slowed him further, his curiosity grew stronger,
                       his heart beat louder.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       An eternity passed; he turned the knob and pushed the door
                       wide open. An obscure being with a translucent form sat
                       among dense clouds. A swarm of lightning traversed around
                       it in ways unnatural. It was a creature from another
                       world, come to consume this world.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       Ripples of screeches echoed out of the dark of the night.
                       Dense little shades moved in front of the clouds. The
                       winged creatures were as fast as their screeches. They
@@ -1405,74 +1502,79 @@
                       The ripples of screeches collided with the swarm of
                       lightning, denting the very fabric of reality around them.
                     </p>
-                    <!--<p class="text-muted">
-                      <time datetime="2022-10-23" aria-label="23 October 2022"
-                        >23 October 2022</time
-                      >
-                    </p>-->
                   </div>
                 </article>
 
-                <article
-                  class="literature-item"
-                  role="region"
-                  aria-label="Liminal Express"
-                >
-                  <h3 class="literature-item-title">
+                <article class="literature-item">
+                  <h4 class="literature-item-title">
                     <button
                       type="button"
-                      class="toggle-article-btn"
+                      class="toggle-article-button"
                       aria-expanded="false"
-                      aria-controls="liminal-body"
+                      aria-controls="liminal-express-body"
                     >
                       <span>Liminal Express</span>
                       <span class="accordion-icon" aria-hidden="true"></span>
                     </button>
-                  </h3>
-                  <div id="liminal-body" class="article-body">
-                    <p class="lh-lg">
+                  </h4>
+
+                  <div
+                    id="liminal-express-body"
+                    class="article-body"
+                    hidden
+                  >
+                    <p class="literature-text">
                       The glass, tinted unevenly, did not open. On the other
                       side are a great many windows placed symmetrically on
                       walls of unsaturated colours. I could not count them all
                       if I had an eternity.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       At a distance, a group of younglings, full of life, stood
                       tall waving their hands at the speeding train. I imagine
-                      they must have not seen me, for I am behind a tinted
-                      glass. Would it have been of any consequence to return the
-                      wave?
+                      they must have not seen me, for I am behind a tinted glass.
+                      Would it have been of any consequence to return the wave?
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       The gods painted the heavens with a symphony of colours.
                       Never have I laid the slightest glance upon a spectacle so
                       terrifyingly breathtaking.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       Something peeked out of the sky. Its skewed body,
                       scattered edges, and obscure being mocked me.
                     </p>
-                    <p class="lh-lg">"Does that look like a rabbit to you?"</p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
+                      "Does that look like a rabbit to you?"
+                    </p>
+
+                    <p class="literature-text">
                       A strange yet comforting voice stole my senses. I wonder
                       why I wasn't expecting company. To my side is a child
                       whose attention could not be taken off the clouds.
                     </p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
                       The hind legs make it look more like a hare than a rabbit.
                     </p>
-                    <p class="lh-lg">"Sure," I replied.</p>
-                    <p class="lh-lg">
+
+                    <p class="literature-text">
+                      "Sure," I replied.
+                    </p>
+
+                    <p class="literature-text">
                       I gazed beyond to find a thin, subtle yet paralysing
                       stroke of violet bordering a thick fiery cloud. With all
                       its might, the sky, on fire, roared bright.
                     </p>
-                    <p class="lh-lg">What does that one look like to you?</p>
-                    <!--<p class="text-muted">
-                      <time datetime="2022-07-31" aria-label="31 July 2022"
-                        >31 July 2022</time
-                      >
-                    </p>-->
+
+                    <p class="literature-text">
+                      What does that one look like to you?
+                    </p>
                   </div>
                 </article>
               </div>
@@ -1481,17 +1583,23 @@
         </section>
       </main>
 
-      <footer-nav></footer-nav>
+      <site-footer></site-footer>
     </div>
 
+    <!-- Artwork lightbox -->
     <div
       class="lightbox"
-      id="lightbox"
+      id="artwork-lightbox"
       role="dialog"
       aria-modal="true"
-      aria-label="Artwork viewer"
+      aria-labelledby="lightbox-title"
       aria-hidden="true"
+      tabindex="-1"
     >
+      <h2 class="visually-hidden" id="lightbox-title">
+        Artwork viewer
+      </h2>
+
       <button
         class="lightbox-close"
         type="button"
@@ -1499,9 +1607,20 @@
       >
         <span aria-hidden="true">&times;</span>
       </button>
+
       <div class="lightbox-content">
         <img id="lightbox-image" src="" alt="" />
       </div>
     </div>
+
+    <!-- Bootstrap 5.3.8 JavaScript bundle -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Site JavaScript -->
+    <script src="script.js" defer></script>
   </body>
 </html>
