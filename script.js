@@ -33,7 +33,6 @@ class SiteHeader extends HTMLElement {
           >
             <a href="#art">Art</a>
             <a href="#literature">Literature</a>
-            <a href="#site-footer">Contact</a>
           </nav>
         </div>
       </header>
@@ -58,18 +57,6 @@ class SiteFooter extends HTMLElement {
 
     this.innerHTML = `
       <footer class="site-footer" id="site-footer">
-        <p>
-          Contact me on
-          <a
-            href="https://signal.org/download/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Signal
-          </a>
-          @ klm.95
-        </p>
-
         <nav aria-label="Footer navigation">
           <a href="#main-content">Back to top</a>
           <a href="#art">Art</a>
