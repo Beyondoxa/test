@@ -42,6 +42,7 @@ body {
   width: 100%;
   min-width: 0;
   min-height: 100vh;
+  min-height: 100dvh;
 
   margin: 0;
   padding: 0;
@@ -247,13 +248,19 @@ figcaption {
 
 .hero-section {
   width: 100%;
-  min-height: min(720px, 78vh);
+
+  /*
+   * The hero fills exactly the visible viewport below
+   * the sticky header.
+   */
+  min-height: calc(100vh - var(--header-height));
+  min-height: calc(100dvh - var(--header-height));
 
   display: grid;
   align-content: center;
   justify-items: center;
 
-  padding: 5rem 0 6rem;
+  padding: 3rem 0;
 
   text-align: center;
 }
@@ -263,7 +270,7 @@ figcaption {
 
   margin: 0;
 
-  font-size: clamp(3.2rem, 9vw, 7rem);
+  font-size: clamp(2.5rem, 7vw, 5rem);
   font-weight: 400;
 
   letter-spacing: -0.04em;
@@ -447,7 +454,6 @@ figcaption {
 
 .section-heading {
   margin: 0 0 1rem;
-  
 }
 
 .toggle-section-button,
@@ -465,20 +471,19 @@ figcaption {
   text-align: left;
 
   padding-inline: 0;
-
 }
 
 .toggle-section-button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  
+
   gap: 1rem;
-  
+
   padding-block: 1rem;
-  
+
   border-bottom: 2px solid var(--site-text);
-  
+
   font-size: 24px;
   font-weight: 750;
 }
@@ -733,9 +738,13 @@ figcaption {
   }
 
   .hero-section {
-    min-height: 600px;
+    /*
+     * Full viewport minus the sticky header.
+     */
+    min-height: calc(100vh - var(--header-height));
+    min-height: calc(100dvh - var(--header-height));
 
-    padding: 4rem 0;
+    padding: 3rem 0;
   }
 
   .literature-layout {
@@ -767,7 +776,14 @@ figcaption {
   }
 
   .hero-section {
-    min-height: 540px;
+    /*
+     * Keep the entire hero within the first screen
+     * even on mobile browsers with dynamic address bars.
+     */
+    min-height: calc(100vh - var(--header-height));
+    min-height: calc(100dvh - var(--header-height));
+
+    padding: 2.5rem 0;
   }
 
   .hero-section h1 {
@@ -839,6 +855,10 @@ figcaption {
   }
 }
 
-.text-underline{
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+.text-underline {
   text-decoration: underline;
 }
