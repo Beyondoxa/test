@@ -193,6 +193,9 @@ figcaption {
    */
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
+
+    padding-left: 12px;
+  padding-right: 12px;
 }
 
 .site-header-inner {
@@ -205,6 +208,8 @@ figcaption {
   justify-content: space-between;
 
   gap: 1.5rem;
+
+
 }
 
 .site-brand {
@@ -288,6 +293,8 @@ figcaption {
 
   letter-spacing: 0.14em;
   text-transform: uppercase;
+
+  margin-top: 48px;
 }
 
 .hero-section h1 {
@@ -302,6 +309,8 @@ figcaption {
   line-height: 0.95;
 
   overflow-wrap: anywhere;
+
+  letter-spacing: 1px;
 }
 
 .hero-section h1 span {
@@ -529,26 +538,21 @@ figcaption {
 }
 
 /* =========================================================
-   ART GALLERY
+   ART GALLERY — SINGLE COLUMN
    ========================================================= */
 
 .art-gallery {
   width: 100%;
 
   display: grid;
+  grid-template-columns: 1fr;
 
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-
-  column-gap: clamp(1.5rem, 4vw, 4rem);
   row-gap: clamp(4rem, 8vw, 7rem);
-
-  align-items: start;
 }
 
 .artwork {
   width: 100%;
   max-width: 100%;
-
   margin: 0;
 }
 
@@ -556,8 +560,7 @@ figcaption {
   display: block;
 
   width: 100%;
-  max-width: 100%;
-  min-width: 0;
+  max-width: none;
 
   padding: 0;
   margin: 0;
@@ -570,8 +573,6 @@ figcaption {
   cursor: zoom-in;
 
   overflow: hidden;
-
-  text-align: left;
 }
 
 .artwork-trigger img {
@@ -593,7 +594,6 @@ figcaption {
   opacity: 0.9;
 }
 
-.artwork figcaption,
 .artwork > figcaption {
   width: 100%;
   max-width: 90%;
@@ -608,32 +608,6 @@ figcaption {
   text-align: justify;
 
   overflow-wrap: anywhere;
-}
-
-/*
- * Every artwork is now a normal grid item.
- *
- * The previous nth-child(3n + 1) rule created:
- *
- *   1 item
- *   2 items
- *   1 item
- *   2 items
- *
- * That is visually inconsistent and unnecessary.
- */
-
-.artwork:nth-child(3n + 1) {
-  grid-column: auto;
-}
-
-.artwork:nth-child(3n + 1) .artwork-trigger {
-  max-width: none;
-  margin: 0;
-}
-
-.artwork:nth-child(3n + 1) figcaption {
-  max-width: 90%;
 }
 
 /* =========================================================

@@ -51,7 +51,7 @@ class MyHeader extends HTMLElement {
 
           <a
             class="site-brand"
-            href="./"
+            href="#main-content"
             aria-label="Dyati home"
           >
             Dyati
