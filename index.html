@@ -1562,8 +1562,17 @@
 
     <!-- Site JavaScript -->
     <script>
+      const version = Date.now();
+
+      // CSS
+      const css = document.createElement("link");
+      css.rel = "stylesheet";
+      css.href = "styles.css?v=" + version;
+      document.head.appendChild(css);
+
+      // JavaScript
       const script = document.createElement("script");
-      script.src = "script.js?v=" + Date.now();
+      script.src = "script.js?v=" + version;
       script.defer = true;
       document.body.appendChild(script);
     </script>
