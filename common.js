@@ -426,3 +426,54 @@ if (document.readyState === "loading") {
 } else {
   initializeSite();
 }
+
+//------------LOOP CAROUSEL OF TITLES ON HOME PAGE------------
+// List of titles to cycle through
+const hometitles = [
+  "Artist",
+  "Author",
+  "Teacher",
+  "Philosopher",
+  "Research Scholar",
+  "Indie Game Developer",
+];
+
+// Configuration variables (all times in milliseconds)
+const homeTitlesFadeTime = 250; // duration of fade in/out
+const hometitlesHoldTime = 1250; // time title stays fully visible
+const homeTitlesWaitTime = 0; // time to wait before showing the next title
+
+// Select the HTML element where the titles will appear
+const titleEl = document.querySelector(".hometitles");
+
+// Update the CSS transition property based on fadeTime
+// This makes the fade duration dynamic based on our configuration
+titleEl.style.transition = `opacity ${homeTitlesFadeTime / 1000}s`;
+
+// Index to keep track of the current title in the array
+let homeTitlesIndex = 0;
+
+// Function to show the next title
+function showNextTitle() {
+  // Set the current title text
+  titleEl.textContent = hometitles[homeTitlesIndex];
+
+  // Fade in the title by setting opacity to 1
+  titleEl.style.opacity = 1;
+
+  // After the title has been visible for 'hometitlesHoldTime', start fading out
+  setTimeout(() => {
+    titleEl.style.opacity = 0; // fade out
+
+    // Wait for the fade out to finish before moving to the next title
+    setTimeout(() => {
+      // Move to the next title in the array
+      homeTitlesIndex = (homeTitlesIndex + 1) % hometitles.length;
+
+      // Wait 'homeTitlesWaitTime' before starting fade-in for the next title
+      setTimeout(showNextTitle, homeTitlesWaitTime);
+    }, homeTitlesFadeTime); // this delay matches the fade-out duration
+  }, hometitlesHoldTime); // this delay matches the hold duration
+}
+// Start the loop for cycling titles
+showNextTitle();
