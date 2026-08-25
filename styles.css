@@ -570,7 +570,7 @@ figcaption {
 
   color: var(--site-text);
 
-  text-align: left;
+  text-align: justify;
 }
 
 .article-body p:last-child {
@@ -579,7 +579,6 @@ figcaption {
 
 .literature-text {
   line-height: 1.8;
-  text-align: justify;
 }
 
 /* =========================================================
