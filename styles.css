@@ -838,3 +838,7 @@ figcaption {
     transition-duration: 0.01ms !important;
   }
 }
+
+.text-underline{
+  text-decoration: underline;
+}
