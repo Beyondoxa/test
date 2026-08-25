@@ -19,6 +19,7 @@ class SiteHeader extends HTMLElement {
     this.innerHTML = `
       <header class="site-header" id="site-header">
         <div class="site-header-inner">
+
           <a
             class="site-brand"
             href="#main-content"
@@ -34,14 +35,11 @@ class SiteHeader extends HTMLElement {
             <a href="#art">Art</a>
             <a href="#literature">Literature</a>
           </nav>
+
         </div>
       </header>
     `;
   }
-}
-
-if (!customElements.get("site-header")) {
-  customElements.define("site-header", SiteHeader);
 }
 
 
@@ -56,24 +54,50 @@ class SiteFooter extends HTMLElement {
     }
 
     this.innerHTML = `
-      <footer class="site-footer" id="site-footer">
+      <footer
+        class="site-footer"
+        id="site-footer"
+      >
         <nav aria-label="Footer navigation">
-          <a href="#main-content">Back to top</a>
-          <a href="#art">Art</a>
-          <a href="#literature">Literature</a>
+          <a href="#main-content">
+            Back to top
+          </a>
+
+          <a href="#art">
+            Art
+          </a>
+
+          <a href="#literature">
+            Literature
+          </a>
         </nav>
       </footer>
     `;
   }
 }
 
+
+/* =========================================================
+   REGISTER CUSTOM ELEMENTS
+   ========================================================= */
+
+if (!customElements.get("site-header")) {
+  customElements.define(
+    "site-header",
+    SiteHeader
+  );
+}
+
 if (!customElements.get("site-footer")) {
-  customElements.define("site-footer", SiteFooter);
+  customElements.define(
+    "site-footer",
+    SiteFooter
+  );
 }
 
 
 /* =========================================================
-   LITERATURE ACCORDIONS
+   ACCORDIONS
    ========================================================= */
 
 function initializeAccordions() {
@@ -82,42 +106,58 @@ function initializeAccordions() {
   );
 
   buttons.forEach((button) => {
-    const targetId = button.getAttribute("aria-controls");
+    const targetId =
+      button.getAttribute("aria-controls");
 
     if (!targetId) {
       return;
     }
 
-    const target = document.getElementById(targetId);
+    const target =
+      document.getElementById(targetId);
 
     if (!target) {
       return;
     }
 
-    if (button.dataset.accordionInitialized === "true") {
+    if (
+      button.dataset.accordionInitialized ===
+      "true"
+    ) {
       return;
     }
 
-    button.dataset.accordionInitialized = "true";
+    button.dataset.accordionInitialized =
+      "true";
 
     const initiallyExpanded =
-      button.getAttribute("aria-expanded") === "true";
+      button.getAttribute(
+        "aria-expanded"
+      ) === "true";
 
-    target.hidden = !initiallyExpanded;
+    target.hidden =
+      !initiallyExpanded;
 
-    button.addEventListener("click", () => {
-      const isExpanded =
-        button.getAttribute("aria-expanded") === "true";
+    button.addEventListener(
+      "click",
+      () => {
+        const isExpanded =
+          button.getAttribute(
+            "aria-expanded"
+          ) === "true";
 
-      const nextState = !isExpanded;
+        const nextState =
+          !isExpanded;
 
-      button.setAttribute(
-        "aria-expanded",
-        String(nextState)
-      );
+        button.setAttribute(
+          "aria-expanded",
+          String(nextState)
+        );
 
-      target.hidden = !nextState;
-    });
+        target.hidden =
+          !nextState;
+      }
+    );
   });
 }
 
@@ -127,21 +167,25 @@ function initializeAccordions() {
    ========================================================= */
 
 function initializeLightbox() {
-  const lightbox = document.getElementById(
-    "artwork-lightbox"
-  );
+  const lightbox =
+    document.getElementById(
+      "artwork-lightbox"
+    );
 
-  const image = document.getElementById(
-    "lightbox-image"
-  );
+  const image =
+    document.getElementById(
+      "lightbox-image"
+    );
 
-  const closeButton = document.querySelector(
-    ".lightbox-close"
-  );
+  const closeButton =
+    document.querySelector(
+      ".lightbox-close"
+    );
 
-  const triggers = document.querySelectorAll(
-    ".artwork-trigger"
-  );
+  const triggers =
+    document.querySelectorAll(
+      ".artwork-trigger"
+    );
 
   if (
     !lightbox ||
@@ -153,11 +197,14 @@ function initializeLightbox() {
   }
 
   let lastTrigger = null;
+
   let previousBodyOverflow = "";
   let previousHtmlOverflow = "";
 
+
   function openLightbox(trigger) {
-    const source = trigger.dataset.lightboxSrc;
+    const source =
+      trigger.dataset.lightboxSrc;
 
     if (!source) {
       return;
@@ -166,7 +213,10 @@ function initializeLightbox() {
     lastTrigger = trigger;
 
     image.src = source;
-    image.alt = trigger.dataset.lightboxAlt || "";
+
+    image.alt =
+      trigger.dataset.lightboxAlt || "";
+
 
     previousBodyOverflow =
       document.body.style.overflow;
@@ -174,18 +224,38 @@ function initializeLightbox() {
     previousHtmlOverflow =
       document.documentElement.style.overflow;
 
-    document.body.style.overflow = "hidden";
-    document.documentElement.style.overflow = "hidden";
 
-    lightbox.classList.add("is-open");
-    lightbox.setAttribute("aria-hidden", "false");
+    document.body.style.overflow =
+      "hidden";
+
+    document.documentElement.style.overflow =
+      "hidden";
+
+
+    lightbox.classList.add(
+      "is-open"
+    );
+
+    lightbox.setAttribute(
+      "aria-hidden",
+      "false"
+    );
+
 
     closeButton.focus();
   }
 
+
   function closeLightbox() {
-    lightbox.classList.remove("is-open");
-    lightbox.setAttribute("aria-hidden", "true");
+    lightbox.classList.remove(
+      "is-open"
+    );
+
+    lightbox.setAttribute(
+      "aria-hidden",
+      "true"
+    );
+
 
     document.body.style.overflow =
       previousBodyOverflow;
@@ -193,12 +263,24 @@ function initializeLightbox() {
     document.documentElement.style.overflow =
       previousHtmlOverflow;
 
-    window.setTimeout(() => {
-      if (!lightbox.classList.contains("is-open")) {
-        image.removeAttribute("src");
-        image.alt = "";
-      }
-    }, 200);
+
+    window.setTimeout(
+      () => {
+        if (
+          !lightbox.classList.contains(
+            "is-open"
+          )
+        ) {
+          image.removeAttribute(
+            "src"
+          );
+
+          image.alt = "";
+        }
+      },
+      200
+    );
+
 
     if (
       lastTrigger &&
@@ -210,40 +292,61 @@ function initializeLightbox() {
     lastTrigger = null;
   }
 
+
   triggers.forEach((trigger) => {
     if (
-      trigger.dataset.lightboxInitialized === "true"
+      trigger.dataset.lightboxInitialized ===
+      "true"
     ) {
       return;
     }
 
-    trigger.dataset.lightboxInitialized = "true";
+    trigger.dataset.lightboxInitialized =
+      "true";
 
-    trigger.addEventListener("click", () => {
-      openLightbox(trigger);
-    });
+
+    trigger.addEventListener(
+      "click",
+      () => {
+        openLightbox(trigger);
+      }
+    );
   });
+
 
   closeButton.addEventListener(
     "click",
     closeLightbox
   );
 
-  lightbox.addEventListener("click", (event) => {
-    if (event.target === lightbox) {
-      closeLightbox();
-    }
-  });
 
-  document.addEventListener("keydown", (event) => {
-    if (
-      event.key === "Escape" &&
-      lightbox.classList.contains("is-open")
-    ) {
-      event.preventDefault();
-      closeLightbox();
+  lightbox.addEventListener(
+    "click",
+    (event) => {
+      if (
+        event.target === lightbox
+      ) {
+        closeLightbox();
+      }
     }
-  });
+  );
+
+
+  document.addEventListener(
+    "keydown",
+    (event) => {
+      if (
+        event.key === "Escape" &&
+        lightbox.classList.contains(
+          "is-open"
+        )
+      ) {
+        event.preventDefault();
+
+        closeLightbox();
+      }
+    }
+  );
 }
 
 
@@ -252,13 +355,15 @@ function initializeLightbox() {
    ========================================================= */
 
 function initializeHomeTitleRotation() {
-  const titleElement = document.getElementById(
-    "home-title-cycle"
-  );
+  const titleElement =
+    document.getElementById(
+      "home-title-cycle"
+    );
 
   if (!titleElement) {
     return;
   }
+
 
   const titles = [
     "Artist",
@@ -266,52 +371,70 @@ function initializeHomeTitleRotation() {
     "Teacher",
     "Philosopher",
     "Research Scholar",
-    "Indie Game Developer",
+    "Indie Game Developer"
   ];
+
 
   const fadeDuration = 250;
   const displayDuration = 1250;
-  const intervalDuration =
-    fadeDuration * 2 + displayDuration;
 
   let titleIndex = 0;
 
-  const reducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  );
+  const reducedMotion =
+    window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    );
+
+
+  titleElement.style.transition =
+    `opacity ${fadeDuration}ms ease`;
+
 
   function showNextTitle() {
     titleElement.textContent =
       titles[titleIndex];
 
+
     if (reducedMotion.matches) {
       titleIndex =
-        (titleIndex + 1) % titles.length;
+        (titleIndex + 1) %
+        titles.length;
 
       window.setTimeout(
         showNextTitle,
-        intervalDuration
+        3000
       );
 
       return;
     }
 
-    titleElement.style.opacity = "1";
 
-    window.setTimeout(() => {
-      titleElement.style.opacity = "0";
-    }, displayDuration);
+    titleElement.style.opacity =
+      "1";
 
-    window.setTimeout(() => {
-      titleIndex =
-        (titleIndex + 1) % titles.length;
 
-      showNextTitle();
-    }, displayDuration + fadeDuration);
+    window.setTimeout(
+      () => {
+        titleElement.style.opacity =
+          "0";
+      },
+      displayDuration
+    );
+
+
+    window.setTimeout(
+      () => {
+        titleIndex =
+          (titleIndex + 1) %
+          titles.length;
+
+        showNextTitle();
+      },
+      displayDuration +
+        fadeDuration
+    );
   }
 
-  titleElement.style.transition =
-    `opacity ${fadeDuration}ms ease`;
 
   showNextTitle();
 }
@@ -327,11 +450,21 @@ function initializeSite() {
   initializeHomeTitleRotation();
 }
 
-if (document.readyState === "loading") {
+
+/* =========================================================
+   START SITE
+   ========================================================= */
+
+if (
+  document.readyState ===
+  "loading"
+) {
   document.addEventListener(
     "DOMContentLoaded",
     initializeSite,
-    { once: true }
+    {
+      once: true
+    }
   );
 } else {
   initializeSite();
