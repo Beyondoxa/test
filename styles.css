@@ -766,10 +766,6 @@ figcaption {
     gap: 0.85rem;
   }
 
-  .site-navigation a:last-child {
-    display: none;
-  }
-
   .hero-section {
     min-height: 540px;
   }
