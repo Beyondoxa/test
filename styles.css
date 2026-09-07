@@ -171,6 +171,7 @@ figcaption {
   width: 100%;
 
   background: rgba(245, 245, 247, 0.94);
+  color: #434343;
 
   border-bottom: 1px solid var(--site-border);
 
@@ -263,7 +264,8 @@ figcaption {
   padding: 3rem 0;
 
   text-align: center;
-  color: #434343;
+  color: #858585;
+  /*color: #434343;*/
   /*color: #222222;*/
 }
 
@@ -291,7 +293,8 @@ figcaption {
 
   margin: 3rem 0 0.75rem;
 
-  color: var(--site-muted);
+  /*color: var(--site-muted);*/
+  color: #858585;
 
   font-size: clamp(1rem, 2vw, 1.4rem);
   font-weight: 700;
@@ -308,7 +311,8 @@ figcaption {
 
   margin: 1.5rem auto 0;
 
-  color: var(--site-muted);
+  /*color: var(--site-muted);*/
+  color: #858585;
 
   font-size: clamp(1rem, 2vw, 1.15rem);
 }
@@ -355,6 +359,8 @@ figcaption {
   max-width: var(--reading-width);
 
   margin-bottom: var(--section-spacing);
+
+  color: #434343;
 }
 
 .section-eyebrow {
@@ -478,6 +484,10 @@ figcaption {
   width: 100%;
 }
 
+.literature-category span {
+  /*color: #434343;*/
+  color: #222222;
+}
 .section-heading {
   margin: 0 0 1rem;
 }
@@ -610,6 +620,7 @@ figcaption {
 
 .literature-text {
   line-height: 1.8;
+  color: #222222 !important;
 }
 
 /* =========================================================
