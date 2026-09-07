@@ -310,6 +310,27 @@ figcaption {
   font-size: clamp(1rem, 2vw, 1.15rem);
 }
 
+.scroll-down {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  color: inherit;
+  animation: down 0.45s infinite;
+}
+
+.scroll-down span {
+  display: block;
+  width: 36px;
+  height: 36px;
+  border-right: 1.5px solid;
+  border-bottom: 1.5px solid;
+  transform: rotate(45deg);
+}
+
+@keyframes down {
+  50% { transform: translateY(5px); }
+}
+
 /* =========================================================
    MAIN SECTIONS
    ========================================================= */
@@ -862,3 +883,5 @@ figcaption {
 .text-underline {
   text-decoration: underline;
 }
+
+
