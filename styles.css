@@ -263,6 +263,8 @@ figcaption {
   padding: 3rem 0;
 
   text-align: center;
+  color: #434343;
+  /*color: #222222;*/
 }
 
 .hero-section h1 {
@@ -281,6 +283,7 @@ figcaption {
 
 .hero-section h1 span {
   font-weight: 700;
+  color: #0c80df;
 }
 
 .hero-kicker {
@@ -328,7 +331,9 @@ figcaption {
 }
 
 @keyframes down {
-  50% { transform: translateY(5px) rotate(45deg); }
+  50% {
+    transform: translateY(5px) rotate(45deg);
+  }
 }
 
 /* =========================================================
@@ -627,10 +632,8 @@ figcaption {
   align-items: center;
   justify-content: center;
 
-  padding:
-    max(1rem, env(safe-area-inset-top))
-    max(1rem, env(safe-area-inset-right))
-    max(1rem, env(safe-area-inset-bottom))
+  padding: max(1rem, env(safe-area-inset-top))
+    max(1rem, env(safe-area-inset-right)) max(1rem, env(safe-area-inset-bottom))
     max(1rem, env(safe-area-inset-left));
 
   background: rgba(0, 0, 0, 0.88);
@@ -883,5 +886,3 @@ figcaption {
 .text-underline {
   text-decoration: underline;
 }
-
-
