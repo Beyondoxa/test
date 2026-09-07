@@ -314,21 +314,21 @@ figcaption {
   position: absolute;
   bottom: 2rem;
   left: 50%;
-  color: inherit;
-  animation: down 0.45s infinite;
+  transform: translateX(-50%);
 }
 
 .scroll-down span {
   display: block;
-  width: 36px;
-  height: 36px;
+  width: 24px;
+  height: 24px;
   border-right: 1.5px solid;
   border-bottom: 1.5px solid;
   transform: rotate(45deg);
+  animation: down 0.5s infinite;
 }
 
 @keyframes down {
-  50% { transform: translateY(5px); }
+  50% { transform: translateY(5px) rotate(45deg); }
 }
 
 /* =========================================================
