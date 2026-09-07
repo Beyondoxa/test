@@ -447,8 +447,8 @@ figcaption {
 }
 
 .artwork-trigger:hover .artwork-image {
-  transform: scale(1.015);
-  opacity: 0.9;
+  transform: scale(1.03);
+  /*opacity: 0.9;*/
 }
 
 .artwork > figcaption {

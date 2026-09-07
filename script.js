@@ -32,8 +32,8 @@ class SiteHeader extends HTMLElement {
             class="site-navigation"
             aria-label="Primary navigation"
           >
-            <a href="#art">Art</a>
-            <a href="#literature">Literature</a>
+            <a href="#art-header">Art</a>
+            <a href="#literature-header">Literature</a>
           </nav>
 
         </div>
@@ -63,11 +63,11 @@ class SiteFooter extends HTMLElement {
             Back to top
           </a>
 
-          <a href="#art">
+          <a href="#art-header">
             Art
           </a>
 
-          <a href="#literature">
+          <a href="#literature-header">
             Literature
           </a>
         </nav>
