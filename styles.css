@@ -283,9 +283,9 @@ figcaption {
   overflow-wrap: anywhere;
 }
 
-.hero-section h1 span {
+.username {
   font-weight: 700;
-  color: #0c80df;
+  color: #0c80df; /* change this to any color you want */
 }
 
 .hero-kicker {
@@ -854,6 +854,7 @@ figcaption {
     max-width: 100%;
     max-height: 90dvh;
   }
+
 }
 
 @media (max-width: 380px) {
